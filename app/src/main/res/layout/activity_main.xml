@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_height="50dp"
+            android:text="Riesgo del paciente"
+            android:textSize="22sp"
+            android:textColor="#11111F"
+            android:textStyle="bold" />
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_margin="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:stretchColumns="1"
+        android:shrinkColumns="0">
+
+        <!-- Encabezado de la tabla -->
+        <TableRow>
+
+            <TextView
+                android:layout_column="1"
+                android:text="Riesgo del Paciente"
+                android:gravity="center"
+                android:padding="8dp"
+                android:layout_margin="1dp"
+                android:background="@drawable/cell_border_primerafila"
+                android:textColor="@color/white"
+                android:textStyle="bold"/>
+        </TableRow>
+
+        <!-- Fila de escenarios de riesgo moderado -->
+
+        <!-- Fila de escenarios de riesgo alto -->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/cell_border_moderado"
+                android:gravity="center"
+                android:padding="8dp"
+                android:layout_margin="1dp"
+                android:text="Escenarios de riesgo moderado"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <CheckBox
+                    android:id="@+id/checkBoxModerate1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="8dp"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/cell_border"
+                    android:text="@string/Moderado1" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxModerate2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="8dp"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/cell_border"
+                    android:text="@string/Moderado2" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxModerate3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="8dp"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/cell_border"
+                    android:text="@string/Moderado3" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxModerate4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="8dp"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/cell_border"
+                    android:text="@string/Moderado4" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxModerate5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="8dp"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/cell_border"
+                    android:text="@string/Moderado5" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxModerate6"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="8dp"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/cell_border"
+                    android:text="@string/Moderado6" />
+                <!-- Agrega más CheckBoxes según sea necesario -->
+            </LinearLayout>
+            <!-- ... más CheckBoxes ... -->
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="15dp"
+                android:layout_height="match_parent"
+                android:text="Escenarios de riesgo alto"
+                android:background="@drawable/cell_border_alto"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:padding="8dp"
+                android:layout_margin="1dp"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <CheckBox
+                    android:id="@+id/checkBoxHigh1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="8dp"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/cell_border"
+                    android:text="@string/Alto1" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxHigh2"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="8dp"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/cell_border"
+                    android:text="@string/Alto2" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxHigh3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="8dp"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/cell_border"
+                    android:text="@string/Alto3" />
+                <!-- Agrega más CheckBoxes según sea necesario -->
+            </LinearLayout>
+
+            <!-- ... más CheckBoxes ... -->
+        </TableRow>
+
+        <!-- ... más filas para otros factores de riesgo ... -->
+
+    </TableLayout>
+
+        <TextView
+            android:id="@+id/text_info"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_height="50dp"
+            android:text="Riesgo de procedimiento"
+            android:textSize="22sp"
+            android:textColor="#11111F"
+            android:textStyle="bold" />
+
+        <TableLayout
+            android:id="@+id/tableLayout2"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:stretchColumns="1"
+            android:shrinkColumns="0">
+
+            <!-- Encabezado de la tabla -->
+            <TableRow>
+
+                <TextView
+                    android:layout_column="1"
+                    android:text="Riesgo del Procedimiento"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/cell_border_primerafila"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"/>
+            </TableRow>
+
+            <!-- Fila de escenarios de riesgo moderado -->
+
+            <!-- Fila de escenarios de riesgo alto -->
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/cell_border_moderado"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:layout_margin="1dp"
+                    android:text="Escenarios de riesgo moderado"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <CheckBox
+                        android:id="@+id/checkBoxModerate7"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="8dp"
+                        android:layout_margin="1dp"
+                        android:background="@drawable/cell_border"
+                        android:text="@string/Moderado7" />
+
+                    <CheckBox
+                        android:id="@+id/checkBoxModerate8"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="8dp"
+                        android:layout_margin="1dp"
+                        android:background="@drawable/cell_border"
+                        android:text="@string/Moderado8" />
+
+                    <CheckBox
+                        android:id="@+id/checkBoxModerate9"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="8dp"
+                        android:layout_margin="1dp"
+                        android:background="@drawable/cell_border"
+                        android:text="@string/Moderado9" />
+
+                    <CheckBox
+                        android:id="@+id/checkBoxModerate10"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="8dp"
+                        android:layout_margin="1dp"
+                        android:background="@drawable/cell_border"
+                        android:text="@string/Moderado10" />
+
+                    <CheckBox
+                        android:id="@+id/checkBoxModerate11"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="8dp"
+                        android:layout_margin="1dp"
+                        android:background="@drawable/cell_border"
+                        android:text="@string/Moderado11" />
+
+                </LinearLayout>
+                <!-- ... más CheckBoxes ... -->
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:layout_width="15dp"
+                    android:layout_height="match_parent"
+                    android:text="Escenarios de riesgo alto"
+                    android:background="@drawable/cell_border_alto"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:padding="8dp"
+                    android:layout_margin="1dp"/>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <CheckBox
+                        android:id="@+id/checkBoxHigh4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="8dp"
+                        android:layout_margin="1dp"
+                        android:background="@drawable/cell_border"
+                        android:text="@string/Alto4" />
+
+                    <CheckBox
+                        android:id="@+id/checkBoxHigh5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="8dp"
+                        android:layout_margin="1dp"
+                        android:background="@drawable/cell_border"
+                        android:text="@string/Alto5" />
+
+                    <CheckBox
+                        android:id="@+id/checkBoxHigh6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="8dp"
+                        android:layout_margin="1dp"
+                        android:background="@drawable/cell_border"
+                        android:text="@string/Alto6" />
+
+                    <CheckBox
+                        android:id="@+id/checkBoxHigh7"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="8dp"
+                        android:layout_margin="1dp"
+                        android:background="@drawable/cell_border"
+                        android:text="@string/Alto7" />
+                    <CheckBox
+                        android:id="@+id/checkBoxHigh8"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="8dp"
+                        android:layout_margin="1dp"
+                        android:background="@drawable/cell_border"
+                        android:text="@string/Alto8" />
+                    <CheckBox
+                        android:id="@+id/checkBoxHigh9"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="8dp"
+                        android:layout_margin="1dp"
+                        android:background="@drawable/cell_border"
+                        android:text="@string/Alto9" />
+
+                    <CheckBox
+                        android:id="@+id/checkBoxHigh10"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="8dp"
+                        android:layout_margin="1dp"
+                        android:background="@drawable/cell_border"
+                        android:text="@string/Alto10" />
+
+                    <!-- Agrega más CheckBoxes según sea necesario -->
+                </LinearLayout>
+
+                <!-- ... más CheckBoxes ... -->
+            </TableRow>
+
+            <!-- ... más filas para otros factores de riesgo ... -->
+
+        </TableLayout>
+
+        <Button
+            android:id="@+id/btn_comprobar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="30dp"
+            android:elevation="8dp"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:stateListAnimator="@null"
+            android:translationZ="1dp"
+            android:layout_gravity="center"
+            android:text="Comprobar"/>
+    </LinearLayout>
+
+    <!-- ... más filas para otros factores de riesgo ... -->
+</ScrollView>

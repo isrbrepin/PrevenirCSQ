@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">PrevenirCSQ</string>
+    <string name="Moderado1">Edad ≥ 70</string>
+    <string name="Moderado2">Inmunosupresión*</string>
+    <string name="Moderado3">Terapia anticoagulante/antiagregación</string>
+    <string name="Moderado4">Hipoalbuminemia</string>
+    <string name="Moderado5">Fumador activo</string>
+    <string name="Moderado6">ASA grado 3 y 4</string>
+    <string name="Alto1"><![CDATA[Diabetes mellitus mal controlada (HbA1c > 7)]]></string>
+    <string name="Alto2">Obesidad: IMC ≥ 30 kg/m²</string>
+    <string name="Alto3"><![CDATA[Desnutrición severa (IMC <16)]]></string>
+    <string name="Moderado7"><![CDATA[Tiempo quirúrgico prolongado (>75% NNIS)]]></string>
+    <string name="Moderado8">Cirugía iterativas (≥2 laparotomías)</string>
+    <string name="Moderado9">Trasplante de órganos</string>
+    <string name="Moderado10">Transfusión sanguínea requerida por la pérdida de sangre</string>
+    <string name="Moderado11"><![CDATA[Reintervención temprana <1 mes]]></string>
+    <string name="Alto4">Reparación de hernia compleja (SAC)</string>
+    <string name="Alto5">Necesidad de disección subcutánea amplia o estado crítico de la herida(alta tensión)</string>
+    <string name="Alto6">Cirugía abierta con campo contaminado</string>
+    <string name="Alto7">Cirugía colorrectal abierta/ostomía</string>
+    <string name="Alto8">Cierre de abdomen abierto</string>
+    <string name="Alto9">Cirugía de urgencia</string>
+    <string name="Alto10">Post-HIPEC</string>
+</resources>
