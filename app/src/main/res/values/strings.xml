@@ -21,4 +21,8 @@
     <string name="Alto8">Cierre de abdomen abierto</string>
     <string name="Alto9">Cirugía de urgencia</string>
     <string name="Alto10">Post-HIPEC</string>
+    <string name="ayuda">Ayuda</string>
+    <string name="riesgo_del_paciente">Riesgo del paciente</string>
+    <string name="riesgo_del_procedimiento">Riesgo del procedimiento</string>
+    <string name="comprobar">Comprobar</string>
 </resources>
