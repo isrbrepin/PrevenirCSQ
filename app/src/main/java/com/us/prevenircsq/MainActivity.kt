@@ -1,12 +1,14 @@
 package com.us.prevenircsq
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
+import android.view.View
 import android.widget.Button
 import android.widget.CheckBox
+import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.appbar.AppBarLayout
+import kotlin.math.abs
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,6 +19,21 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val appBarLayout = findViewById<View>(R.id.appBarLayout) as AppBarLayout
+
+        val shadowView2 =
+            findViewById<View>(R.id.shadow_view2)
+
+        appBarLayout.addOnOffsetChangedListener { appBarLayout, verticalOffset ->
+            if (abs(verticalOffset) == appBarLayout.totalScrollRange) {
+                // AppBar está completamente colapsado
+                shadowView2.animate().alpha(1f) // Hacer visible suavemente
+            } else {
+                shadowView2.alpha = 0f // Mantener invisible
+            }
+        }
+
 
         val btnComprobar: Button = findViewById(R.id.btn_comprobar)
 
