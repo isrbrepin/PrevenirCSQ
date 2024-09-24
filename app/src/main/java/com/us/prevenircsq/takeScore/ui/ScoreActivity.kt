@@ -2,17 +2,12 @@ package com.us.prevenircsq.takeScore.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import android.widget.Button
 import android.widget.CheckBox
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
-import com.google.android.material.appbar.AppBarLayout
 import com.us.prevenircsq.R
 import com.us.prevenircsq.RecommendationActivity
+import com.us.prevenircsq.databinding.ActivityScoreBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlin.math.abs
 
@@ -20,15 +15,20 @@ import kotlin.math.abs
 class ScoreActivity : AppCompatActivity() {
 
     private lateinit var viewModel: ScoreViewModel
+    private lateinit var binding: ActivityScoreBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_score)
 
-        viewModel = ViewModelProvider(this).get(ScoreViewModel::class.java)
+        // Usar ViewBinding para inflar el layout
+        binding = ActivityScoreBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val appBarLayout = findViewById<View>(R.id.appBarLayout) as AppBarLayout
-        val shadowView2 = findViewById<View>(R.id.shadow_view2)
+        viewModel = ViewModelProvider(this)[ScoreViewModel::class.java]
+
+        val appBarLayout = binding.appBarLayout
+        val shadowView2 = binding.shadowView2
         appBarLayout.addOnOffsetChangedListener { appBarLayout, verticalOffset ->
             if (abs(verticalOffset) == appBarLayout.totalScrollRange) {
                 shadowView2.animate().alpha(1f)
@@ -38,25 +38,37 @@ class ScoreActivity : AppCompatActivity() {
         }
 
         val checkBoxesModerate = listOf(
-            R.id.checkBoxModerate1, R.id.checkBoxModerate2, R.id.checkBoxModerate3,
-            R.id.checkBoxModerate4, R.id.checkBoxModerate5, R.id.checkBoxModerate6,
-            R.id.checkBoxModerate7, R.id.checkBoxModerate8, R.id.checkBoxModerate9,
-            R.id.checkBoxModerate10, R.id.checkBoxModerate11
+            binding.checkBoxModerate1,
+            binding.checkBoxModerate2,
+            binding.checkBoxModerate3,
+            binding.checkBoxModerate4,
+            binding.checkBoxModerate5,
+            binding.checkBoxModerate6,
+            binding.checkBoxModerate7,
+            binding.checkBoxModerate8,
+            binding.checkBoxModerate9,
+            binding.checkBoxModerate10,
+            binding.checkBoxModerate11
         )
 
         val checkBoxesHigh = listOf(
-            R.id.checkBoxHigh1, R.id.checkBoxHigh2, R.id.checkBoxHigh3,
-            R.id.checkBoxHigh4, R.id.checkBoxHigh5, R.id.checkBoxHigh6,
-            R.id.checkBoxHigh7, R.id.checkBoxHigh8, R.id.checkBoxHigh9,
-            R.id.checkBoxHigh10
+            binding.checkBoxHigh1,
+            binding.checkBoxHigh2,
+            binding.checkBoxHigh3,
+            binding.checkBoxHigh4,
+            binding.checkBoxHigh5,
+            binding.checkBoxHigh6,
+            binding.checkBoxHigh7,
+            binding.checkBoxHigh8,
+            binding.checkBoxHigh9,
+            binding.checkBoxHigh10
         )
 
         // Asignar listeners a los checkboxes
         setupCheckBoxListeners(checkBoxesModerate, false)
         setupCheckBoxListeners(checkBoxesHigh, true)
 
-        val btnComprobar: Button = findViewById(R.id.btn_comprobar)
-        btnComprobar.setOnClickListener {
+        binding.btnComprobar.setOnClickListener {
             val recommendation = viewModel.getRecommendation()
             Intent(this, RecommendationActivity::class.java).apply {
                 putExtra("recommendation", recommendation)
@@ -65,9 +77,9 @@ class ScoreActivity : AppCompatActivity() {
         }
     }
 
-    private fun setupCheckBoxListeners(checkBoxIds: List<Int>, isHighRisk: Boolean) {
-        checkBoxIds.forEach { checkBoxId ->
-            findViewById<CheckBox>(checkBoxId).setOnCheckedChangeListener { _, isChecked ->
+    private fun setupCheckBoxListeners(checkBoxes: List<CheckBox>, isHighRisk: Boolean) {
+        checkBoxes.forEach { checkBox ->
+            checkBox.setOnCheckedChangeListener { _, isChecked ->
                 if (isHighRisk) {
                     viewModel.onHighRiskChanged(isChecked)
                 } else {
