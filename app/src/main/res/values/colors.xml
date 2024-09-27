@@ -3,4 +3,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="color_botones">#E8903B</color>
+    <color name="gris">#CDCDCD</color>
+    <color name="naranja_oscuro">#DC6C00</color>
+    <color name="naranja_claro">#FFC791</color>
 </resources>

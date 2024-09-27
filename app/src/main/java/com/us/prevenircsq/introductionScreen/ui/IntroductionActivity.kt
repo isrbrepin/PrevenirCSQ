@@ -8,8 +8,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.us.prevenircsq.R
+import com.us.prevenircsq.sectionsScreen.ui.SectionsActivity
 import com.us.prevenircsq.takeScore.ui.ScoreActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class IntroductionActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,7 +22,7 @@ class IntroductionActivity : AppCompatActivity() {
         // Configura el evento de clic del botón
         btnComenzar.setOnClickListener {
             // Crear una intención para lanzar la SecondActivity
-            val intent = Intent(this@IntroductionActivity, ScoreActivity::class.java)
+            val intent = Intent(this@IntroductionActivity, SectionsActivity::class.java)
             startActivity(intent)
         }
 

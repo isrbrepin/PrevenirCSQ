@@ -4,12 +4,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.CheckBox
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProvider
 import com.us.prevenircsq.R
-import com.us.prevenircsq.RecommendationActivity
+import com.us.prevenircsq.recommendationScreen.ui.RecommendationActivity
 import com.us.prevenircsq.databinding.ActivityScoreBinding
 import dagger.hilt.android.AndroidEntryPoint
-import kotlin.math.abs
 
 @AndroidEntryPoint
 class ScoreActivity : AppCompatActivity() {
@@ -27,14 +27,20 @@ class ScoreActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this)[ScoreViewModel::class.java]
 
-        val appBarLayout = binding.appBarLayout
-        val shadowView2 = binding.shadowView2
-        appBarLayout.addOnOffsetChangedListener { appBarLayout, verticalOffset ->
-            if (abs(verticalOffset) == appBarLayout.totalScrollRange) {
-                shadowView2.animate().alpha(1f)
-            } else {
-                shadowView2.alpha = 0f
-            }
+        // Configurar la Toolbar
+        val toolbar: Toolbar = binding.toolbar
+        setSupportActionBar(toolbar)
+
+        // Establecer el título de la toolbar
+        supportActionBar?.title = "Algoritmo / Score"
+
+        // Establecer el ícono personalizado de la flecha
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.baseline_arrow_back_24)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        // Acciones al presionar el botón
+        toolbar.setNavigationOnClickListener {
+            onBackPressedDispatcher.onBackPressed() // Navegar a la pantalla anterior
         }
 
         val checkBoxesModerate = listOf(

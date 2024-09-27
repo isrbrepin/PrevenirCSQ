@@ -4,353 +4,294 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".takeScore.ui.ScoreActivity">
+    android:background="@color/white">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-
-        <com.google.android.material.appbar.CollapsingToolbarLayout
-            android:id="@+id/collapsing_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:contentScrim="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|enterAlways">
-
-            <include layout="@layout/activity_header" />
+        android:background="@android:color/white"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        android:elevation="0dp"
+        app:title="Algoritmo / Score"
+        app:titleTextColor="@android:color/black" />
 
 
-        </com.google.android.material.appbar.CollapsingToolbarLayout>
-
-        <!-- View para la Sombra -->
-
-
-    </com.google.android.material.appbar.AppBarLayout>
-    <View
-        android:id="@+id/shadow_view1"
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:elevation="2dp"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:background="@drawable/shadow_drawable" />
-
-    <View
-        android:id="@+id/shadow_view2"
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:elevation="2dp"
-        android:background="@drawable/shadow_drawable"/>
-
-    <androidx.core.widget.NestedScrollView
+    <!-- Contenido con Scroll -->
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/collapsing_toolbar"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:layout_marginTop="60dp">
 
-        <!-- Aquí tu ScrollView o el contenido principal -->
-
-        <ScrollView
+        <!-- LinearLayout para el contenido -->
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fillViewport="true">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <!-- Usa LinearLayout para la estructura principal -->
-            <LinearLayout
+
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:gravity="center"
+                android:text="@string/riesgo_del_paciente"
+                android:textSize="22sp"
+                android:textColor="#11111F"
+                android:textStyle="bold"
+                android:layout_margin="16dp"/>
 
-                <!-- CardView para el encabezado -->
-                <androidx.cardview.widget.CardView
+            <!-- Usa RecyclerView o LinearLayout para listas de elementos -->
+
+            <!-- CardView para la tabla de riesgos moderados -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="2dp"
+                app:cardCornerRadius="8dp"
+                app:strokeColor="#CECECE"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="16dp">
+
+                <!-- LinearLayout para los elementos de la "tabla" -->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:cardElevation="4dp"
-                    app:cardCornerRadius="8dp">
-
-                </androidx.cardview.widget.CardView>
-
-                <!-- CardView para el encabezado -->
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:cardElevation="4dp"
-                    app:cardCornerRadius="8dp"
-                    android:layout_margin="16dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:padding="10dp"
-                        android:text="@string/riesgo_del_paciente"
-                        android:textSize="22sp"
-                        android:textColor="#11111F"
-                        android:textStyle="bold" />
-                </androidx.cardview.widget.CardView>
-
-                <!-- Usa RecyclerView o LinearLayout para listas de elementos -->
-
-                <!-- CardView para la tabla de riesgos moderados -->
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:cardElevation="4dp"
-                    app:cardCornerRadius="8dp"
+                    android:orientation="vertical"
                     android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="16dp">
+                    android:layout_marginEnd="10dp">
 
-                    <!-- LinearLayout para los elementos de la "tabla" -->
-                    <LinearLayout
+                    <!-- Personaliza tus CheckBoxes aquí -->
+
+                    <CheckBox
+                        android:id="@+id/checkBoxModerate1"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="10dp">
+                        android:layout_height="48dp"
+                        android:textColor="@color/black"
+                        android:theme="@style/MyModerateCheckBox"
+                        android:text="@string/Moderado1" />
 
-                        <!-- Personaliza tus CheckBoxes aquí -->
+                    <CheckBox
+                        android:id="@+id/checkBoxModerate2"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:textColor="@color/black"
+                        android:theme="@style/MyModerateCheckBox"
+                        android:text="@string/Moderado2" />
 
-                        <CheckBox
-                            android:id="@+id/checkBoxModerate1"
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:textColor="@color/black"
-                            android:theme="@style/MyModerateCheckBox"
-                            android:text="@string/Moderado1" />
+                    <CheckBox
+                        android:id="@+id/checkBoxModerate3"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:textColor="@color/black"
+                        android:theme="@style/MyModerateCheckBox"
+                        android:text="@string/Moderado3" />
 
-                        <CheckBox
-                            android:id="@+id/checkBoxModerate2"
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:textColor="@color/black"
-                            android:theme="@style/MyModerateCheckBox"
-                            android:text="@string/Moderado2" />
+                    <CheckBox
+                        android:id="@+id/checkBoxModerate4"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:textColor="@color/black"
+                        android:theme="@style/MyModerateCheckBox"
+                        android:text="@string/Moderado4" />
 
-                        <CheckBox
-                            android:id="@+id/checkBoxModerate3"
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:textColor="@color/black"
-                            android:theme="@style/MyModerateCheckBox"
-                            android:text="@string/Moderado3" />
+                    <CheckBox
+                        android:id="@+id/checkBoxModerate5"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:textColor="@color/black"
+                        android:theme="@style/MyModerateCheckBox"
+                        android:text="@string/Moderado5" />
 
-                        <CheckBox
-                            android:id="@+id/checkBoxModerate4"
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:textColor="@color/black"
-                            android:theme="@style/MyModerateCheckBox"
-                            android:text="@string/Moderado4" />
-
-                        <CheckBox
-                            android:id="@+id/checkBoxModerate5"
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:textColor="@color/black"
-                            android:theme="@style/MyModerateCheckBox"
-                            android:text="@string/Moderado5" />
-
-                        <CheckBox
-                            android:id="@+id/checkBoxModerate6"
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:textColor="@color/black"
-                            android:theme="@style/MyModerateCheckBox"
-                            android:text="@string/Moderado6"  />
-                        <!-- ... -->
+                    <CheckBox
+                        android:id="@+id/checkBoxModerate6"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:textColor="@color/black"
+                        android:theme="@style/MyModerateCheckBox"
+                        android:text="@string/Moderado6"  />
+                    <!-- ... -->
 
 
-                        <CheckBox
-                            android:id="@+id/checkBoxHigh1"
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:textColor="@color/black"
-                            android:theme="@style/MyHighCheckBox"
-                            android:text="@string/Alto1" />
+                    <CheckBox
+                        android:id="@+id/checkBoxHigh1"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:textColor="@color/black"
+                        android:theme="@style/MyHighCheckBox"
+                        android:text="@string/Alto1" />
 
-                        <CheckBox
-                            android:id="@+id/checkBoxHigh2"
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:textColor="@color/black"
-                            android:theme="@style/MyHighCheckBox"
-                            android:text="@string/Alto2" />
+                    <CheckBox
+                        android:id="@+id/checkBoxHigh2"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:textColor="@color/black"
+                        android:theme="@style/MyHighCheckBox"
+                        android:text="@string/Alto2" />
 
-                        <CheckBox
-                            android:id="@+id/checkBoxHigh3"
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:textColor="@color/black"
-                            android:theme="@style/MyHighCheckBox"
-                            android:text="@string/Alto3" />
+                    <CheckBox
+                        android:id="@+id/checkBoxHigh3"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:textColor="@color/black"
+                        android:theme="@style/MyHighCheckBox"
+                        android:text="@string/Alto3" />
 
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/riesgo_del_procedimiento"
+                android:textSize="22sp"
+                android:textColor="#11111F"
+                android:textStyle="bold"
+                android:layout_margin="16dp"/>
 
-                <!-- CardView para el encabezado -->
-                <androidx.cardview.widget.CardView
+            <!-- Usa RecyclerView o LinearLayout para listas de elementos -->
+
+            <!-- CardView para la tabla de riesgos moderados -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="2dp"
+                app:strokeColor="#CECECE"
+                app:cardCornerRadius="8dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="16dp">
+
+                <!-- LinearLayout para los elementos de la "tabla" -->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:cardElevation="4dp"
-                    app:cardCornerRadius="8dp"
-                    android:layout_margin="16dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:padding="10dp"
-                        android:text="@string/riesgo_del_procedimiento"
-                        android:textSize="22sp"
-                        android:textColor="#11111F"
-                        android:textStyle="bold" />
-                </androidx.cardview.widget.CardView>
-
-                <!-- Usa RecyclerView o LinearLayout para listas de elementos -->
-
-                <!-- CardView para la tabla de riesgos moderados -->
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:cardElevation="4dp"
-                    app:cardCornerRadius="8dp"
+                    android:orientation="vertical"
                     android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="16dp">
+                    android:layout_marginEnd="10dp">
 
-                    <!-- LinearLayout para los elementos de la "tabla" -->
-                    <LinearLayout
+                    <!-- Personaliza tus CheckBoxes aquí -->
+
+                    <CheckBox
+                        android:id="@+id/checkBoxModerate7"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="10dp">
+                        android:layout_height="48dp"
+                        android:textColor="@color/black"
+                        android:theme="@style/MyModerateCheckBox"
+                        android:text="@string/Moderado7" />
 
-                        <!-- Personaliza tus CheckBoxes aquí -->
+                    <CheckBox
+                        android:id="@+id/checkBoxModerate8"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:textColor="@color/black"
+                        android:theme="@style/MyModerateCheckBox"
+                        android:text="@string/Moderado8" />
 
-                        <CheckBox
-                            android:id="@+id/checkBoxModerate7"
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:textColor="@color/black"
-                            android:theme="@style/MyModerateCheckBox"
-                            android:text="@string/Moderado7" />
+                    <CheckBox
+                        android:id="@+id/checkBoxModerate9"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:textColor="@color/black"
+                        android:theme="@style/MyModerateCheckBox"
+                        android:text="@string/Moderado9" />
 
-                        <CheckBox
-                            android:id="@+id/checkBoxModerate8"
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:textColor="@color/black"
-                            android:theme="@style/MyModerateCheckBox"
-                            android:text="@string/Moderado8" />
+                    <CheckBox
+                        android:id="@+id/checkBoxModerate10"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:textColor="@color/black"
+                        android:theme="@style/MyModerateCheckBox"
+                        android:text="@string/Moderado10" />
 
-                        <CheckBox
-                            android:id="@+id/checkBoxModerate9"
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:textColor="@color/black"
-                            android:theme="@style/MyModerateCheckBox"
-                            android:text="@string/Moderado9" />
+                    <CheckBox
+                        android:id="@+id/checkBoxModerate11"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:textColor="@color/black"
+                        android:theme="@style/MyModerateCheckBox"
+                        android:text="@string/Moderado11" />
+                    <!-- ... -->
 
-                        <CheckBox
-                            android:id="@+id/checkBoxModerate10"
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:textColor="@color/black"
-                            android:theme="@style/MyModerateCheckBox"
-                            android:text="@string/Moderado10" />
+                    <CheckBox
+                        android:id="@+id/checkBoxHigh4"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:textColor="@color/black"
+                        android:theme="@style/MyHighCheckBox"
+                        android:text="@string/Alto4" />
 
-                        <CheckBox
-                            android:id="@+id/checkBoxModerate11"
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:textColor="@color/black"
-                            android:theme="@style/MyModerateCheckBox"
-                            android:text="@string/Moderado11" />
-                        <!-- ... -->
+                    <CheckBox
+                        android:id="@+id/checkBoxHigh5"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:textColor="@color/black"
+                        android:theme="@style/MyHighCheckBox"
+                        android:text="@string/Alto5" />
 
-                        <CheckBox
-                            android:id="@+id/checkBoxHigh4"
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:textColor="@color/black"
-                            android:theme="@style/MyHighCheckBox"
-                            android:text="@string/Alto4" />
+                    <CheckBox
+                        android:id="@+id/checkBoxHigh6"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:textColor="@color/black"
+                        android:theme="@style/MyHighCheckBox"
+                        android:text="@string/Alto6" />
 
-                        <CheckBox
-                            android:id="@+id/checkBoxHigh5"
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:textColor="@color/black"
-                            android:theme="@style/MyHighCheckBox"
-                            android:text="@string/Alto5" />
+                    <CheckBox
+                        android:id="@+id/checkBoxHigh7"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:textColor="@color/black"
+                        android:theme="@style/MyHighCheckBox"
+                        android:text="@string/Alto7" />
+                    <CheckBox
+                        android:id="@+id/checkBoxHigh8"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:textColor="@color/black"
+                        android:theme="@style/MyHighCheckBox"
+                        android:text="@string/Alto8" />
+                    <CheckBox
+                        android:id="@+id/checkBoxHigh9"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:textColor="@color/black"
+                        android:theme="@style/MyHighCheckBox"
+                        android:text="@string/Alto9" />
 
-                        <CheckBox
-                            android:id="@+id/checkBoxHigh6"
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:textColor="@color/black"
-                            android:theme="@style/MyHighCheckBox"
-                            android:text="@string/Alto6" />
-
-                        <CheckBox
-                            android:id="@+id/checkBoxHigh7"
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:textColor="@color/black"
-                            android:theme="@style/MyHighCheckBox"
-                            android:text="@string/Alto7" />
-                        <CheckBox
-                            android:id="@+id/checkBoxHigh8"
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:textColor="@color/black"
-                            android:theme="@style/MyHighCheckBox"
-                            android:text="@string/Alto8" />
-                        <CheckBox
-                            android:id="@+id/checkBoxHigh9"
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:textColor="@color/black"
-                            android:theme="@style/MyHighCheckBox"
-                            android:text="@string/Alto9" />
-
-                        <CheckBox
-                            android:id="@+id/checkBoxHigh10"
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:textColor="@color/black"
-                            android:theme="@style/MyHighCheckBox"
-                            android:text="@string/Alto10" />
+                    <CheckBox
+                        android:id="@+id/checkBoxHigh10"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:textColor="@color/black"
+                        android:theme="@style/MyHighCheckBox"
+                        android:text="@string/Alto10" />
 
 
 
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-                <Button
-                    android:id="@+id/btn_comprobar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
-                    android:layout_marginBottom="30dp"
-                    android:elevation="8dp"
-                    android:textAlignment="center"
-                    android:textStyle="bold"
-                    android:stateListAnimator="@null"
-                    android:translationZ="1dp"
-                    android:layout_gravity="center"
-                    android:text="@string/comprobar"/>
-            </LinearLayout>
+            <Button
+                android:id="@+id/btn_comprobar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="30dp"
+                android:backgroundTint="@color/color_botones"
+                android:elevation="2dp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:stateListAnimator="@null"
+                android:translationZ="1dp"
+                android:layout_gravity="center"
+                android:text="@string/comprobar"/>
+        </LinearLayout>
 
-            <!-- ... más filas para otros factores de riesgo ... -->
-        </ScrollView>
-
-    </androidx.core.widget.NestedScrollView>
+        <!-- ... más filas para otros factores de riesgo ... -->
+    </ScrollView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

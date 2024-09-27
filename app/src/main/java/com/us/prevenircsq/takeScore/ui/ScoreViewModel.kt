@@ -28,8 +28,8 @@ class ScoreViewModel @Inject constructor() : ViewModel() {
             (_moderateRiskCount.value ?: 0) >= 3 ||
                     (_highRiskCount.value ?: 0) >= 2 ||
                     ((_moderateRiskCount.value ?: 0) >= 2 && (_highRiskCount.value ?: 0) >= 1) ->
-                "Considerar la introducción de TPN incisional profiláctica"
-            else -> "No es necesaria la introducción de TPN incisional profiláctica"
+                "TPN de un solo uso durante 7 dias"
+            else -> "RECOMENDACIÓN DE APÓSITO POSTQUIRÚRGICO"
         }
     }
 }
