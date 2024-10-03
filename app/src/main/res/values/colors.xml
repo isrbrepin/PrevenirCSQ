@@ -6,4 +6,7 @@
     <color name="gris">#CDCDCD</color>
     <color name="naranja_oscuro">#DC6C00</color>
     <color name="naranja_claro">#FFC791</color>
+    <color name="azul_sn">#26658F</color>
+    <color name="color_riesgo_alto">#A42D1E</color>
+    <color name="gris_puntos">#A5A5A5</color>
 </resources>

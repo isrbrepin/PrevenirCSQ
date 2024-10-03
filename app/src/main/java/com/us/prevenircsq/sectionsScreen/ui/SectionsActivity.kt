@@ -12,6 +12,7 @@ import com.us.prevenircsq.databinding.ActivityScoreBinding
 import com.us.prevenircsq.databinding.ActivitySectionsBinding
 import com.us.prevenircsq.faqScreen.ui.FaqActivity
 import com.us.prevenircsq.takeScore.ui.ScoreActivity
+import com.us.prevenircsq.v2TakeScore.ui.Score2Activity
 
 
 class SectionsActivity : AppCompatActivity() {
@@ -46,6 +47,13 @@ class SectionsActivity : AppCompatActivity() {
         binding.btnAlgoritmo.setOnClickListener {
             // Crear una intención para lanzar la SecondActivity
             val intent = Intent(this, ScoreActivity::class.java)
+            startActivity(intent)
+        }
+
+        // Configura el evento de clic del botón
+        binding.btnAlgoritmo2.setOnClickListener {
+            // Crear una intención para lanzar la SecondActivity
+            val intent = Intent(this, Score2Activity::class.java)
             startActivity(intent)
         }
 

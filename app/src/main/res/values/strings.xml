@@ -1,4 +1,5 @@
 <resources>
+
     <string name="app_name">PrevenirCSQ</string>
     <string name="Moderado1">Edad ≥ 70</string>
     <string name="Moderado2">Inmunosupresión*</string>
