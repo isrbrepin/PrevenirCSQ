@@ -12,9 +12,9 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:background="@android:color/white"
+        android:background="@color/color_botones"
         app:title="Preguntas frecuentes"
-        app:titleTextColor="@android:color/black" />
+        app:titleTextColor="@color/white" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewPreguntas"

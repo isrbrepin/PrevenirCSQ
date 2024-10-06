@@ -2,7 +2,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/white"
+    android:background="@drawable/background_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -11,7 +11,7 @@
         android:id="@+id/toolbar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@android:color/white"
+        android:background="@color/color_botones"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,7 +20,7 @@
         app:title=""
         app:titleTextColor="@android:color/black" />
 
-    <!-- Botón estilo tarjeta -->
+    <!--
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/btn_algoritmo"
         android:layout_width="0dp"
@@ -37,12 +37,10 @@
         android:backgroundTint="@color/white"
         app:cardElevation="2dp">
 
-        <!-- Contenedor del contenido del botón -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <!-- Imagen flotante -->
             <ImageView
                 android:id="@+id/imageIcon"
                 android:layout_width="80dp"
@@ -55,7 +53,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <!-- Texto -->
             <TextView
                 android:id="@+id/cardTitle"
                 android:layout_width="wrap_content"
@@ -69,7 +66,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/arrowIcon" />
 
-            <!-- Flecha indicadora -->
             <ImageView
                 android:id="@+id/arrowIcon"
                 android:layout_width="24dp"
@@ -83,6 +79,7 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
+    -->
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/btn_algoritmo2"
@@ -96,7 +93,7 @@
         app:strokeWidth="1dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_algoritmo"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
         android:backgroundTint="@color/white"
         app:cardElevation="2dp">
 
@@ -124,7 +121,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="Algoritmo / Score V2"
+                android:text="Algoritmo / Score"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -135,6 +132,69 @@
             <!-- Flecha indicadora -->
             <ImageView
                 android:id="@+id/arrowIcon4"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="16dp"
+                android:src="@drawable/baseline_arrow_forward_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@android:color/black" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/btn_mecanismo_accion"
+        android:layout_width="0dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        app:cardCornerRadius="12dp"
+        app:strokeColor="#CECECE"
+        app:strokeWidth="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_algoritmo2"
+        android:backgroundTint="@color/white"
+        app:cardElevation="2dp">
+
+        <!-- Contenedor del contenido del botón -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- Imagen flotante -->
+            <ImageView
+                android:id="@+id/imageIcon5"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_marginEnd="16dp"
+                android:elevation="4dp"
+                android:scaleType="fitEnd"
+                android:src="@drawable/image_mecanismo"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Texto -->
+            <TextView
+                android:id="@+id/cardTitle5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Mecanismo de acción"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/arrowIcon5" />
+
+            <!-- Flecha indicadora -->
+            <ImageView
+                android:id="@+id/arrowIcon5"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginStart="16dp"
@@ -159,7 +219,7 @@
         app:strokeWidth="1dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_algoritmo2"
+        app:layout_constraintTop_toBottomOf="@+id/btn_mecanismo_accion"
         android:backgroundTint="@color/white"
         app:cardElevation="2dp">
 
@@ -261,69 +321,6 @@
             <!-- Flecha indicadora -->
             <ImageView
                 android:id="@+id/arrowIcon3"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginStart="16dp"
-                android:src="@drawable/baseline_arrow_forward_24"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:tint="@android:color/black" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.google.android.material.card.MaterialCardView>
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/btn_mecanismo_accion"
-        android:layout_width="0dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        app:cardCornerRadius="12dp"
-        app:strokeColor="#CECECE"
-        app:strokeWidth="1dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_preguntas"
-        android:backgroundTint="@color/white"
-        app:cardElevation="2dp">
-
-        <!-- Contenedor del contenido del botón -->
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <!-- Imagen flotante -->
-            <ImageView
-                android:id="@+id/imageIcon5"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                android:layout_marginEnd="16dp"
-                android:elevation="4dp"
-                android:scaleType="fitEnd"
-                android:src="@drawable/image_mecanismo"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <!-- Texto -->
-            <TextView
-                android:id="@+id/cardTitle5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:text="Mecanismo de acción"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/arrowIcon5" />
-
-            <!-- Flecha indicadora -->
-            <ImageView
-                android:id="@+id/arrowIcon5"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginStart="16dp"

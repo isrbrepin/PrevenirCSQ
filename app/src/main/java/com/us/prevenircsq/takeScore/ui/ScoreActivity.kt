@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.CheckBox
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.us.prevenircsq.R
 import com.us.prevenircsq.recommendationScreen.ui.RecommendationActivity
@@ -25,6 +26,9 @@ class ScoreActivity : AppCompatActivity() {
         binding = ActivityScoreBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Cambiar el color de la barra de estado a naranja
+        window.statusBarColor = ContextCompat.getColor(this, R.color.color_botones)
+
         viewModel = ViewModelProvider(this)[ScoreViewModel::class.java]
 
         // Configurar la Toolbar
@@ -34,8 +38,9 @@ class ScoreActivity : AppCompatActivity() {
         // Establecer el título de la toolbar
         supportActionBar?.title = "Algoritmo / Score"
 
-        // Establecer el ícono personalizado de la flecha
-        supportActionBar?.setHomeAsUpIndicator(R.drawable.baseline_arrow_back_24)
+        val upArrow = resources.getDrawable(R.drawable.baseline_arrow_back_24, null)
+        upArrow.setTint(ContextCompat.getColor(this, R.color.white))  // Cambia el color de la flecha a blanco
+        supportActionBar?.setHomeAsUpIndicator(upArrow)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         // Acciones al presionar el botón

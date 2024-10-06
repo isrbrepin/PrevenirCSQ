@@ -30,15 +30,20 @@ class Score2Activity : AppCompatActivity() {
         binding = ActivityScore2Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Cambiar el color de la barra de estado a naranja
+        window.statusBarColor = ContextCompat.getColor(this, R.color.color_botones)
+
         // Configurar la Toolbar
         val toolbar: Toolbar = binding.toolbar
         setSupportActionBar(toolbar)
 
+
         // Establecer el título de la toolbar
         supportActionBar?.title = "Algoritmo / Score"
 
-        // Establecer el ícono personalizado de la flecha
-        supportActionBar?.setHomeAsUpIndicator(R.drawable.baseline_arrow_back_24)
+        val upArrow = resources.getDrawable(R.drawable.baseline_arrow_back_24, null)
+        upArrow.setTint(ContextCompat.getColor(this, R.color.white))  // Cambia el color de la flecha a blanco
+        supportActionBar?.setHomeAsUpIndicator(upArrow)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         // Acción al presionar la flecha de la Toolbar
