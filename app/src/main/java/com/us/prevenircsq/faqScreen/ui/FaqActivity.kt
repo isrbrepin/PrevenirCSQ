@@ -29,7 +29,6 @@ class FaqActivity : AppCompatActivity() {
 
         // Cambiar el color de la barra de estado a naranja
         window.statusBarColor = ContextCompat.getColor(this, R.color.color_botones)
-        window.navigationBarColor = ContextCompat.getColor(this, R.color.color_botones)
 
         viewModel = ViewModelProvider(this)[FaqViewModel::class.java]
 
