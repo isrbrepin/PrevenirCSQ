@@ -67,21 +67,34 @@ class PreguntaAdapter(
         }
 
         private fun expandTextViewWithAnimation(view: View) {
-            view.measure(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-            val targetHeight = view.measuredHeight
-
-            view.layoutParams.height = 0
+            // Hacemos visible el TextView antes de medir
             view.isVisible = true
-            val animator = ValueAnimator.ofInt(0, targetHeight)
-            animator.addUpdateListener { valueAnimator ->
-                val layoutParams = view.layoutParams
-                layoutParams.height = valueAnimator.animatedValue as Int
-                view.layoutParams = layoutParams
+
+            // Esperamos a que se calcule el layout
+            view.post {
+                // Medimos el TextView. Usamos MeasureSpec.UNSPECIFIED para que el TextView crezca según su contenido.
+                view.measure(
+                    View.MeasureSpec.makeMeasureSpec(view.width, View.MeasureSpec.EXACTLY),
+                    View.MeasureSpec.UNSPECIFIED
+                )
+
+                // Obtenemos la altura medida después de que el TextView se haya dibujado
+                val targetHeight = view.measuredHeight
+
+                // Animamos el cambio de altura desde 0 hasta la altura objetivo
+                val animator = ValueAnimator.ofInt(0, targetHeight)
+                animator.addUpdateListener { valueAnimator ->
+                    val layoutParams = view.layoutParams
+                    layoutParams.height = valueAnimator.animatedValue as Int
+                    view.layoutParams = layoutParams
+                }
+
+                animator.duration = 300  // Duración de la animación
+                animator.interpolator = AccelerateDecelerateInterpolator()
+                animator.start()
             }
-            animator.duration = 300  // Duración de la animación
-            animator.interpolator = AccelerateDecelerateInterpolator()
-            animator.start()
         }
+
 
         private fun collapseTextViewWithAnimation(view: View) {
             val initialHeight = view.measuredHeight
