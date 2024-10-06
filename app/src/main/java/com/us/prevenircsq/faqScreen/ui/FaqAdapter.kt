@@ -29,19 +29,17 @@ class PreguntaAdapter(
 
         // Manejar el click en el item para expandir o colapsar
         holder.itemView.setOnClickListener {
-            // Actualizamos el estado de expansión de la pregunta
             val pregunta = preguntas[position]
             pregunta.expandida = !pregunta.expandida
-            notifyItemChanged(position) // Notificamos que este ítem ha cambiado
+            notifyItemChanged(position)
         }
     }
 
     override fun getItemCount(): Int = preguntas.size
 
-    // Actualizar la lista de preguntas
     fun updateData(nuevasPreguntas: List<FaqItem>) {
         preguntas = nuevasPreguntas
-        notifyDataSetChanged() // Notificar que los datos han cambiado
+        notifyDataSetChanged()
     }
 
     class PreguntaViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -53,65 +51,33 @@ class PreguntaAdapter(
             tituloTextView.text = pregunta.titulo
             descripcionTextView.text = pregunta.descripcion
 
-            // Si está expandido, mostramos la descripción con su altura completa y rotamos la flecha
+            // Establecemos alpha a 0 si está oculto para evitar que aparezca de golpe al expandir
+            if (!pregunta.expandida) {
+                descripcionTextView.alpha = 0f
+                descripcionTextView.visibility = View.GONE
+                expandArrow.rotation = 0f
+            }
+
+            // Mostrar u ocultar con animación dependiendo del estado expandido
             if (pregunta.expandida) {
                 expandArrow.rotation = 180f
-                if (descripcionTextView.visibility == View.GONE) {
-                    expandTextViewWithAnimation(descripcionTextView)
-                }
+                descripcionTextView.visibility = View.VISIBLE
+                descripcionTextView.animate()
+                    .alpha(1f)
+                    .setDuration(300)
+                    .setInterpolator(AccelerateDecelerateInterpolator())
+                    .start()
             } else {
-                // Si no está expandido, ocultamos la descripción y restauramos la flecha
                 expandArrow.rotation = 0f
-                collapseTextViewWithAnimation(descripcionTextView)
+                descripcionTextView.animate()
+                    .alpha(0f)
+                    .setDuration(300)
+                    .setInterpolator(AccelerateDecelerateInterpolator())
+                    .withEndAction {
+                        descripcionTextView.visibility = View.GONE
+                    }
+                    .start()
             }
-        }
-
-        private fun expandTextViewWithAnimation(view: View) {
-            // Hacemos visible el TextView antes de medir
-            view.isVisible = true
-
-            // Esperamos a que se calcule el layout
-            view.post {
-                // Medimos el TextView. Usamos MeasureSpec.UNSPECIFIED para que el TextView crezca según su contenido.
-                view.measure(
-                    View.MeasureSpec.makeMeasureSpec(view.width, View.MeasureSpec.EXACTLY),
-                    View.MeasureSpec.UNSPECIFIED
-                )
-
-                // Obtenemos la altura medida después de que el TextView se haya dibujado
-                val targetHeight = view.measuredHeight
-
-                // Animamos el cambio de altura desde 0 hasta la altura objetivo
-                val animator = ValueAnimator.ofInt(0, targetHeight)
-                animator.addUpdateListener { valueAnimator ->
-                    val layoutParams = view.layoutParams
-                    layoutParams.height = valueAnimator.animatedValue as Int
-                    view.layoutParams = layoutParams
-                }
-
-                animator.duration = 300  // Duración de la animación
-                animator.interpolator = AccelerateDecelerateInterpolator()
-                animator.start()
-            }
-        }
-
-
-        private fun collapseTextViewWithAnimation(view: View) {
-            val initialHeight = view.measuredHeight
-
-            val animator = ValueAnimator.ofInt(initialHeight, 0)
-            animator.addUpdateListener { valueAnimator ->
-                val layoutParams = view.layoutParams
-                layoutParams.height = valueAnimator.animatedValue as Int
-                view.layoutParams = layoutParams
-            }
-            animator.addListener(onEnd = {
-                view.isVisible = false
-            })
-            animator.duration = 300  // Duración de la animación
-            animator.interpolator = AccelerateDecelerateInterpolator()
-            animator.start()
         }
     }
 }
-
