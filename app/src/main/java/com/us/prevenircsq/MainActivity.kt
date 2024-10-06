@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.CheckBox
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.google.android.material.appbar.AppBarLayout
 import com.us.prevenircsq.introductionScreen.ui.IntroductionActivity
 import com.us.prevenircsq.takeScore.ui.ScoreActivity
@@ -22,6 +23,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
+
+        window.statusBarColor = ContextCompat.getColor(this, R.color.color_botones)
+        window.navigationBarColor = ContextCompat.getColor(this, R.color.color_botones)
 
         // Usar un Handler para esperar 3 segundos
         Handler(Looper.getMainLooper()).postDelayed({

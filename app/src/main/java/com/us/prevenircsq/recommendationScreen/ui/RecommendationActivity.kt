@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat
 import com.us.prevenircsq.R
 
 class RecommendationActivity : AppCompatActivity() {
@@ -14,6 +15,11 @@ class RecommendationActivity : AppCompatActivity() {
         // Configurar la Toolbar
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
+
+        // Cambiar el color de la barra de estado a naranja
+        window.statusBarColor = ContextCompat.getColor(this, R.color.color_botones)
+        window.navigationBarColor = ContextCompat.getColor(this, R.color.color_botones)
+
 
         // Eliminar el título por defecto de la aplicación
         supportActionBar?.setDisplayShowTitleEnabled(false)
