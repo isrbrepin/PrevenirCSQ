@@ -52,7 +52,8 @@
                 android:textColor="@color/black"
                 android:textSize="13sp"
                 android:layout_marginBottom="16dp"
-                android:justificationMode="inter_word" />
+                android:justificationMode="inter_word"
+                android:textIsSelectable="true"/>
 
             <!-- Segunda referencia -->
             <TextView
@@ -63,7 +64,8 @@
                 android:textColor="@color/black"
                 android:textSize="13sp"
                 android:layout_marginBottom="16dp"
-                android:justificationMode="inter_word" />
+                android:justificationMode="inter_word"
+                android:textIsSelectable="true"/>
 
             <!-- Tercera referencia -->
             <TextView
@@ -74,7 +76,8 @@
                 android:textColor="@color/black"
                 android:textSize="13sp"
                 android:layout_marginBottom="16dp"
-                android:justificationMode="inter_word" />
+                android:justificationMode="inter_word"
+                android:textIsSelectable="true"/>
 
             <!-- Cuarta referencia -->
             <TextView
@@ -85,7 +88,8 @@
                 android:textColor="@color/black"
                 android:textSize="13sp"
                 android:layout_marginBottom="16dp"
-                android:justificationMode="inter_word" />
+                android:justificationMode="inter_word"
+                android:textIsSelectable="true"/>
 
             <!-- Quinta referencia -->
             <TextView
@@ -96,7 +100,8 @@
                 android:textColor="@color/black"
                 android:textSize="13sp"
                 android:layout_marginBottom="16dp"
-                android:justificationMode="inter_word" />
+                android:justificationMode="inter_word"
+                android:textIsSelectable="true"/>
 
             <!-- Sexta referencia -->
             <TextView
@@ -107,7 +112,8 @@
                 android:textColor="@color/black"
                 android:textSize="13sp"
                 android:layout_marginBottom="16dp"
-                android:justificationMode="inter_word" />
+                android:justificationMode="inter_word"
+                android:textIsSelectable="true"/>
 
             <!-- Séptima referencia -->
             <TextView
@@ -118,7 +124,8 @@
                 android:textColor="@color/black"
                 android:textSize="13sp"
                 android:layout_marginBottom="16dp"
-                android:justificationMode="inter_word" />
+                android:justificationMode="inter_word"
+                android:textIsSelectable="true"/>
 
             <!-- Octava referencia -->
             <TextView
@@ -129,7 +136,8 @@
                 android:textColor="@color/black"
                 android:textSize="13sp"
                 android:layout_marginBottom="16dp"
-                android:justificationMode="inter_word" />
+                android:justificationMode="inter_word"
+                android:textIsSelectable="true"/>
 
             <!-- Novena referencia -->
             <TextView
@@ -140,7 +148,8 @@
                 android:textColor="@color/black"
                 android:textSize="13sp"
                 android:layout_marginBottom="16dp"
-                android:justificationMode="inter_word" />
+                android:justificationMode="inter_word"
+                android:textIsSelectable="true"/>
 
         </LinearLayout>
 
