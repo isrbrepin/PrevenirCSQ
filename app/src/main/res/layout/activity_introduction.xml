@@ -28,13 +28,6 @@
         app:layout_constraintTop_toBottomOf="@id/activity_header">
 
 
-        <ScrollView
-            android:id="@+id/contentLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/corner_radius"
-            android:orientation="vertical">
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -93,20 +86,8 @@
                     android:textColor="#888888"
                     android:textSize="16sp" />
 
-                <TextView
-                    android:id="@+id/descriptionText3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:gravity="center_horizontal"
-                    android:padding="16dp"
-                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat."
-                    android:textColor="#888888"
-                    android:textSize="16sp" />
 
             </LinearLayout>
-
-        </ScrollView>
 
     </LinearLayout>
     <!-- Fixed Button -->
