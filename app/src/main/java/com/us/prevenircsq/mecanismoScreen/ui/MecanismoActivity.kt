@@ -1,8 +1,6 @@
 package com.us.prevenircsq.mecanismoScreen.ui
 
 import android.os.Bundle
-import android.view.MotionEvent
-import android.view.ScaleGestureDetector
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -16,8 +14,6 @@ import com.us.prevenircsq.databinding.ActivityMecanismoBinding
 class MecanismoActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMecanismoBinding
-    private lateinit var scaleGestureDetector: ScaleGestureDetector
-    private var scaleFactor = 1.0f
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,21 +41,6 @@ class MecanismoActivity : AppCompatActivity() {
         toolbar.setNavigationOnClickListener {
             onBackPressedDispatcher.onBackPressed() // Navegar a la pantalla anterior
         }
-        // Configurar el detector de gestos de zoom
-        scaleGestureDetector = ScaleGestureDetector(this, object : ScaleGestureDetector.SimpleOnScaleGestureListener() {
-            override fun onScale(detector: ScaleGestureDetector): Boolean {
-                scaleFactor *= detector.scaleFactor
-                scaleFactor = 0.1f.coerceAtLeast(scaleFactor.coerceAtMost(10.0f))
-                binding.imageView.scaleX = scaleFactor
-                binding.imageView.scaleY = scaleFactor
-                return true
-            }
-        })
-    }
 
-    // Sobrescribir el método onTouchEvent para detectar los gestos de zoom
-    override fun onTouchEvent(event: MotionEvent): Boolean {
-        scaleGestureDetector.onTouchEvent(event)
-        return true
     }
 }

@@ -24,8 +24,8 @@
 
     <!-- Contenedor para los enlaces -->
 
-    <ImageView
-        android:id="@+id/imageView"
+    <com.github.chrisbanes.photoview.PhotoView
+        android:id="@+id/photoView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="46dp"
