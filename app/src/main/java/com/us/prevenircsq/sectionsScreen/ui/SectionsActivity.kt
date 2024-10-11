@@ -25,6 +25,7 @@ class SectionsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sections)
+        enableEdgeToEdge()
 
         // Cambiar el color de la barra de estado a naranja
         window.statusBarColor = ContextCompat.getColor(this, R.color.color_botones)
