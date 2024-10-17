@@ -1,52 +1,59 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/preguntaContainer"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp"
+    app:cardBackgroundColor="@android:color/white">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/gris"/>
-
-    <!-- Contenedor para el título y la flecha -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp"
-        android:gravity="center_vertical">
+        android:orientation="vertical">
 
-        <!-- Título de la pregunta -->
-        <TextView
-            android:id="@+id/tituloTextView"
-            android:layout_width="0dp"
+        <!-- Título y flecha -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Título de la pregunta"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="@color/black" />
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:gravity="center_vertical">
 
-        <!-- Flecha para expandir o colapsar -->
-        <ImageView
-            android:id="@+id/expandArrow"
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:layout_marginStart="12dp"
-            android:src="@drawable/angulo_hacia_abajo"
-            android:contentDescription="Expand/Collapse" />
+            <!-- Título de la pregunta -->
+            <TextView
+                android:id="@+id/tituloTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="12dp"
+                android:text="Título de la pregunta"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black" />
+
+            <!-- Flecha -->
+            <ImageView
+                android:id="@+id/expandArrow"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:src="@drawable/angulo_hacia_abajo"
+                android:contentDescription="Expandir/Colapsar"
+                app:tint="#747474" />
+        </LinearLayout>
+
+        <!-- Descripción oculta -->
+        <TextView
+            android:id="@+id/descripcionTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:visibility="gone"
+            android:text="Descripción del contenido de la pregunta..."
+            android:textSize="14sp"
+            android:textColor="@android:color/black" />
+
     </LinearLayout>
 
-    <!-- Descripción oculta -->
-    <TextView
-        android:id="@+id/descripcionTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:visibility="gone"
-        android:padding="16dp" />
-
-</LinearLayout>
+</androidx.cardview.widget.CardView>
