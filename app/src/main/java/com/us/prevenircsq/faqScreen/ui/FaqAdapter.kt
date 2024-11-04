@@ -46,11 +46,33 @@ class PreguntaAdapter(
     class PreguntaViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val tituloTextView: TextView = view.findViewById(R.id.tituloTextView)
         private val descripcionTextView: TextView = view.findViewById(R.id.descripcionTextView)
+        private val descripcionImageView: ImageView = view.findViewById(R.id.descripcionImageView)
+        private val descripcionImageView2: ImageView = view.findViewById(R.id.descripcionImageView2)
         private val expandArrow: ImageView = view.findViewById(R.id.expandArrow)
 
         fun bind(pregunta: FaqItem) {
             tituloTextView.text = pregunta.titulo
             descripcionTextView.text = pregunta.descripcion
+
+            if (pregunta.imageResource != null) {
+                descripcionTextView.visibility = View.GONE
+                descripcionImageView.setImageResource(pregunta.imageResource)
+                descripcionImageView.visibility = if (pregunta.expandida) View.VISIBLE else View.GONE
+            } else {
+                descripcionTextView.text = pregunta.descripcion
+                descripcionTextView.visibility = if (pregunta.expandida) View.VISIBLE else View.GONE
+                descripcionImageView.visibility = View.GONE
+            }
+
+            if (pregunta.imageResource2 != null) {
+                descripcionTextView.visibility = View.GONE
+                descripcionImageView2.setImageResource(pregunta.imageResource2)
+                descripcionImageView2.visibility = if (pregunta.expandida) View.VISIBLE else View.GONE
+            } else {
+                descripcionTextView.text = pregunta.descripcion
+                descripcionTextView.visibility = if (pregunta.expandida) View.VISIBLE else View.GONE
+                descripcionImageView2.visibility = View.GONE
+            }
 
             // Mostrar/ocultar la descripción sincronizando con la rotación
             if (pregunta.expandida) {

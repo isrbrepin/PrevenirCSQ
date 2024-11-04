@@ -111,12 +111,19 @@ class Score2Activity : AppCompatActivity() {
         // Observar cuando se genere la recomendación
         viewModel.respuestaActual.observe(this) { recommendation ->
             recommendation?.let {
-                Intent(this, RecommendationActivity::class.java).apply {
-                    putExtra("recommendation", recommendation)
-                    startActivity(this)
+                // Espera hasta que también se obtenga la imagen para mandar ambos datos
+                viewModel.imageResource.observe(this) { imageResId ->
+                    Intent(this, RecommendationActivity::class.java).apply {
+                        putExtra("recommendation", recommendation)
+                        putExtra("imageResource", imageResId)
+                        flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+                        startActivity(this)
+                        finish()
+                    }
                 }
             }
         }
+
     }
     // Función para inicializar los puntos de progreso
     private fun inicializarPuntosDeProgreso() {

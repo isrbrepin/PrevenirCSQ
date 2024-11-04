@@ -5,18 +5,19 @@
     android:layout_height="match_parent"
     android:background="@drawable/background_main">
 
+
+
     <ImageView
-        android:id="@+id/logoImageView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:src="@drawable/smith_logo"
-        app:layout_constraintDimensionRatio="1:1"
-        android:layout_margin="64dp"
-        android:contentDescription="@string/logo_smith_nephew"
+        android:layout_width="350dp"
+        android:layout_height="120dp"
+        android:src="@drawable/image_carga"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

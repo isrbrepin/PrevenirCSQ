@@ -9,4 +9,6 @@
     <color name="azul_sn">#26658F</color>
     <color name="color_riesgo_alto">#A42D1E</color>
     <color name="gris_puntos">#A5A5A5</color>
+    <color name="azul_enlaces">#0645AD</color>
+
 </resources>

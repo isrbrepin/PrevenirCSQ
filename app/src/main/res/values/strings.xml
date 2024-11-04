@@ -1,6 +1,6 @@
 <resources>
 
-    <string name="app_name">PrevenirCSQ</string>
+    <string name="app_name">SCORECARD TPNi CG</string>
     <string name="Moderado1">Edad ≥ 70</string>
     <string name="Moderado2">Inmunosupresión*</string>
     <string name="Moderado3">Terapia anticoagulante/antiagregación</string>
@@ -28,4 +28,8 @@
     <string name="comprobar">Comprobar</string>
     <string name="letras_logotipo">letras logotipo</string>
     <string name="logo_smith_nephew">logo_smith_nephew</string>
+    <string name="ref11"><![CDATA[11. Bueno-Lledó J, Rubio-Pérez I, Moreno-Gijón M, Olona-Casas C, Barbosa E, Molina JM, et al. Prophylactic use of incisional negative pressure wound therapy for the prevention of surgical site occurrences in general surgery: Consensus document. Surgery [Internet]. 2022 Dec 31 [cited 2023 Jan 16]; Available from: https://www.sciencedirect.com/science/article/abs/pii/S0039606022010121?CMX_ID=&SIS_ID=&dgcid=STMJ_AUTH_SERV_PUBLISHED&utm_acid=80272470&utm_campaign=STMJ_AUTH_SERV_PUBLISHED&utm_in=DM329951&utm_medium=email&utm_source=AC_]]></string>
+    <string name="descripcion_text"><![CDATA[
+        Nuestra APP, creada en colaboración con Smith+Nephew, está diseñada para ayudar a cirujanos a identificar <b>pacientes de alto riesgo</b> en cirugía abdominal y colorrectal, facilitando la aplicación de <b>terapia de presión negativa</b> de un solo uso cuando sea adecuado. Basada en la evidencia clínica, esta herramienta optimiza la <b>prevención de complicaciones</b> en el sitio quirúrgico, mejorando la recuperación y <b>reduciendo costes</b> para el sistema sanitario.
+        ]]></string>
 </resources>

@@ -17,17 +17,91 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:elevation="0dp"
-        app:title=""
-        app:titleTextColor="@android:color/black" />
+        app:title="Recomendación"
+        app:titleTextColor="@color/white" />
 
-    <TextView
-        android:id="@+id/recommendationTextView"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
+        android:orientation="vertical"
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/recommendationTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TPN DE UN SOLO USO DURANTE 7 DIAS"
+            android:textSize="28sp"
+            android:padding="16dp"
+            android:layout_marginBottom="30dp"
+            android:textStyle="bold"
+            android:gravity="center" />
+        <ImageView
+            android:id="@+id/recommendationImage"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_marginBottom="16dp"
+            android:layout_gravity="center"
+            android:padding="16dp"
+            android:visibility="gone"
+            android:contentDescription="Logo de la empresa"
+            android:src="@drawable/image_tpn" />
+
+        <LinearLayout
+            android:id="@+id/recommendationImageAposito"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="250dp"
+                android:layout_marginBottom="16dp"
+                android:layout_gravity="center"
+                android:padding="16dp"
+                android:contentDescription="Logo de la empresa"
+                android:src="@drawable/image_aposito" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="250dp"
+                android:layout_marginBottom="16dp"
+                android:layout_gravity="center"
+                android:padding="16dp"
+                android:contentDescription="Logo de la empresa"
+                android:src="@drawable/image_aposito2" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/recommendationImage2"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_marginBottom="16dp"
+            android:layout_gravity="center"
+            android:padding="16dp"
+            android:visibility="gone"
+            android:contentDescription="Logo de la empresa"
+            android:src="@drawable/image_beneficiostpn" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/bibliografiaLink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ver Bibliografía que respalda el resultado"
+        android:textColor="@color/azul_enlaces"
+        android:textStyle="bold"
+        android:layout_margin="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

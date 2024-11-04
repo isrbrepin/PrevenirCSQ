@@ -26,6 +26,7 @@ class BibliografiaActivity : AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
+
         // Establecer el título de la toolbar
         supportActionBar?.title = "Estudios / Bibliografía"
 

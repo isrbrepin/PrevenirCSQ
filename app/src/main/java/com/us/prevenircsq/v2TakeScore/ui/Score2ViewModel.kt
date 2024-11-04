@@ -39,6 +39,9 @@ class Score2ViewModel @Inject constructor(
         Pregunta("Post-HIPEC", esRiesgoAlto = true, esRiesgoPaciente = false)
     )
 
+    private var _imageResource = MutableLiveData<Int>()
+    val imageResource: LiveData<Int> get() = _imageResource
+
     private var _indicePreguntaActual = MutableLiveData(0)
     val indicePreguntaActual: LiveData<Int> get() = _indicePreguntaActual
 
@@ -89,8 +92,11 @@ class Score2ViewModel @Inject constructor(
             _indicePreguntaActual.value = indice + 1
         } else {
             // Mostrar recomendación si ya no hay más preguntas
-            _respuestaActual.value = getRecommendation()
+            val (recommendationText, recommendationImage) = getRecommendation()
+            _respuestaActual.value = recommendationText // Asignar el texto de la recomendación
+            _imageResource.value = recommendationImage  // Asignar el recurso de imagen
         }
+
     }
 
     // Retrocede a la pregunta anterior
@@ -111,15 +117,19 @@ class Score2ViewModel @Inject constructor(
     }
 
     // Genera la recomendación final según los riesgos
-    private fun getRecommendation(): String {
+    fun getRecommendation(): Pair<String, Int> {
         return when {
             (_moderateRiskCount.value ?: 0) >= 3 ||
                     (_highRiskCount.value ?: 0) >= 2 ||
-                    ((_moderateRiskCount.value ?: 0) >= 2 && (_highRiskCount.value ?: 0) >= 1) ->
-                "TPN de un solo uso durante 7 días"
-            else -> "RECOMENDACIÓN DE APÓSITO POSTQUIRÚRGICO"
+                    ((_moderateRiskCount.value ?: 0) >= 2 && (_highRiskCount.value ?: 0) >= 1) -> {
+                "TPN DE UN SOLO USO DURANTE 7 DÍAS" to R.drawable.image_tpn // Imagen para riesgo alto
+            }
+            else -> {
+                "RECOMENDACIÓN DE APÓSITO POSTQUIRÚRGICO" to R.drawable.image_aposito // Imagen para riesgo bajo
+            }
         }
     }
+
     fun getNumeroTotalPreguntas(): Int {
         return preguntas.size
     }

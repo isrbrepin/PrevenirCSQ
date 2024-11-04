@@ -333,4 +333,27 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 
+    <TextView
+        android:id="@+id/patrocinadoText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Patrocinado por"
+        android:textSize="14sp"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="14dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toStartOf="@id/logoEmpresa"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <ImageView
+        android:id="@+id/logoEmpresa"
+        android:layout_width="100dp"
+        android:layout_height="15dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="Logo de la empresa"
+        android:src="@drawable/logoblanco"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,7 +22,6 @@
         app:title="Bibliografía / Estudios"
         app:titleTextColor="@color/white" />
 
-    <!-- ScrollView para deslizar el contenido -->
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="0dp"
@@ -35,7 +34,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <!-- Contenedor para las referencias -->
         <LinearLayout
             android:id="@+id/linksContainer"
             android:layout_width="match_parent"
@@ -43,104 +41,251 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- Primera referencia -->
+            <!-- Ejemplo de referencia con enlace -->
             <TextView
                 android:id="@+id/ref1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1. Loveluck J, Copeland T, Hill J, Hunt A, Martin R. Biomechanical modelling of the forces applied to closed incisions during single-use negative pressure wound therapy. ePlasty. 2016;16:e20."
+                android:text="1. World Union of Wound Healing Societies (WUWHS) Consensus Document. Closed surgical incision management: understanding the role of NPWT. Wounds International, 2016."
                 android:textColor="@color/black"
                 android:textSize="13sp"
-                android:layout_marginBottom="18dp"
+                android:layout_marginBottom="15dp"
+                android:autoLink="web"
                 android:textIsSelectable="true"/>
 
-            <!-- Segunda referencia -->
             <TextView
                 android:id="@+id/ref2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2. Kilpadi DV, Cunningham MR. Evaluation of closed incision management with negative pressure wound therapy (CIM): hematoma/seroma and involvement of the lymphatic system. Wound Repair Regen. 2011;19:588–596."
+                android:text="2. Loveluck J, Copeland T, Hill J, Hunt A, Martin R. Biomechanical modelling of the forces applied to closed incisions during single-use negative pressure wound therapy. ePlasty. 2016;16:e20."
                 android:textColor="@color/black"
                 android:textSize="13sp"
-                android:layout_marginBottom="18dp"
+                android:layout_marginBottom="15dp"
+                android:autoLink="web"
                 android:textIsSelectable="true"/>
 
-            <!-- Tercera referencia -->
             <TextView
                 android:id="@+id/ref3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3. Birke-Sorensen H, et al. Evidence-based recommendations for Negative Pressure Wound Therapy: Treatment variables (pressure levels, wound filler and contact layer) - Steps towards an international consensus. Journal of plastic, reconstructive and aesthetic surgery: JPRAS 64 Suppl, S1–S16 (2011)."
+                android:text="3. Kilpadi DV, Cunningham MR. Evaluation of closed incision management with negative pressure wound therapy (CIM): hematoma/seroma and involvement of the lymphatic system. Wound Repair Regen. 2011;19:588–596."
                 android:textColor="@color/black"
                 android:textSize="13sp"
-                android:layout_marginBottom="18dp"
+                android:layout_marginBottom="15dp"
+                android:autoLink="web"
                 android:textIsSelectable="true"/>
 
-            <!-- Cuarta referencia -->
             <TextView
                 android:id="@+id/ref4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4. Scalise A, Calamita R, Tartaglione C, et al. Improving wound healing and preventing surgical site complications of closed surgical incisions: a possible role of Incisional Negative Pressure Wound Therapy. A systematic review of the literature. Int Wound J. 2016;13:1260–1281."
+                android:text="4. Birke-Sorensen H, et al. Evidence-based recommendations for Negative Pressure Wound Therapy: Treatment variables (pressure levels, wound filler and contact layer) - Steps towards an international consensus. Journal of plastic, reconstructive and aesthetic surgery: JPRAS 64 Suppl, S1–S16 (2011)."
                 android:textColor="@color/black"
                 android:textSize="13sp"
-                android:layout_marginBottom="18dp"
+                android:layout_marginBottom="15dp"
+                android:autoLink="web"
                 android:textIsSelectable="true"/>
 
-            <!-- Quinta referencia -->
             <TextView
                 android:id="@+id/ref5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="5. Shim HS, Choi JS, Kim SW. A role for postoperative negative pressure wound therapy in multitissue hand injuries. Biomed Res Int. 2018;2018."
+                android:text="5. Scalise A, Calamita R, Tartaglione C, et al. Improving wound healing and preventing surgical site complications of closed surgical incisions: a possible role of Incisional Negative Pressure Wound Therapy. A systematic review of the literature. Int Wound J. 2016;13:1260–1281."
                 android:textColor="@color/black"
                 android:textSize="13sp"
-                android:layout_marginBottom="18dp"
+                android:layout_marginBottom="15dp"
+                android:autoLink="web"
                 android:textIsSelectable="true"/>
 
-            <!-- Sexta referencia -->
             <TextView
                 android:id="@+id/ref6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="6. Malmsjo M, Huddleston E, Martin R. Biological effects of a disposable, canisterless negative pressure wound therapy system. ePlasty. 2014;14:e15."
+                android:text="6. Shim HS, Choi JS, Kim SW. A role for postoperative negative pressure wound therapy in multitissue hand injuries. Biomed Res Int. 2018;2018."
                 android:textColor="@color/black"
                 android:textSize="13sp"
-                android:layout_marginBottom="18dp"
+                android:layout_marginBottom="15dp"
+                android:autoLink="web"
                 android:textIsSelectable="true"/>
 
-            <!-- Séptima referencia -->
             <TextView
                 android:id="@+id/ref7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="7. Ma Z, Shou K, Li Z, et al. Negative pressure wound therapy promotes vessel destabilization and maturation at various stages of wound healing and thus influences wound prognosis. Exp Ther Med. 2016;11(4):1307–1317."
+                android:text="7. Malmsjö M, Huddleston E, Martin R. Biological effects of a disposable, canisterless negative pressure wound therapy system. ePlasty. 2014;14:e15."
                 android:textColor="@color/black"
                 android:textSize="13sp"
-                android:layout_marginBottom="18dp"
+                android:layout_marginBottom="15dp"
+                android:autoLink="web"
                 android:textIsSelectable="true"/>
 
-            <!-- Octava referencia -->
             <TextView
                 android:id="@+id/ref8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="8. Xia CY, Yu AX, Qi B, et al. Analysis of blood flow and local expression of angiogenesis associated growth factors in infected wounds treated with negative pressure wound therapy. Mol Med Rep. 2014;9(5):1749–1754."
+                android:text="8. Ma Z, Shou K, Li Z, et al. Negative pressure wound therapy promotes vessel destabilization and maturation at various stages of wound healing and thus influences wound prognosis. Exp Ther Med. 2016;11(4):1307–1317."
                 android:textColor="@color/black"
                 android:textSize="13sp"
-                android:layout_marginBottom="18dp"
+                android:layout_marginBottom="15dp"
+                android:autoLink="web"
                 android:textIsSelectable="true"/>
 
-            <!-- Novena referencia -->
             <TextView
                 android:id="@+id/ref9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="9. Smith+Nephew 2020. Bacterial barrier testing of the PICO dressing. Internal Report. 2001002."
+                android:text="9. Xia CY, Yu AX, Qi B, et al. Analysis of blood flow and local expression of angiogenesis associated growth factors in infected wounds treated with negative pressure wound therapy. Mol Med Rep. 2014;9(5):1749–1754."
                 android:textColor="@color/black"
                 android:textSize="13sp"
-                android:layout_marginBottom="18dp"
+                android:layout_marginBottom="15dp"
+                android:autoLink="web"
                 android:textIsSelectable="true"/>
+
+            <TextView
+                android:id="@+id/ref10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10. Smith+Nephew 2020. Bacterial barrier testing of the PICO dressing. Internal Report. 2001002."
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                android:layout_marginBottom="15dp"
+                android:autoLink="web"
+                android:textIsSelectable="true"/>
+
+            <TextView
+                android:id="@+id/ref11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ref11"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                android:textColorLink="@color/azul_enlaces"
+                android:layout_marginBottom="15dp"
+                android:autoLink="web"
+                android:textIsSelectable="true"/>
+
+            <!-- Otro ejemplo de referencia con enlace -->
+            <TextView
+                android:id="@+id/ref12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12. National Institute for Health and Care Excellence. MTG review decision document. 2024. Available from: https://www.nice.org.uk/guidance/mtg43/evidence/review-decision-february-2024-pdf-13314467629 [Accessed June 2024]."
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                android:layout_marginBottom="15dp"
+                android:textColorLink="@color/azul_enlaces"
+                android:autoLink="web"
+                android:textIsSelectable="true"/>
+
+            <TextView
+                android:id="@+id/ref13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="13. National Institute for Health and Care Excellence. PICO negative pressure wound dressings for closed surgical incisions (MTG43). 2019. Available from: https://www.nice.org.uk/guidance/mtg43/resources/pico-negative-pressure-wound-dressings-for-closed-surgical-incisionspdf-64372054098373 [Accessed June 2024]."
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                android:layout_marginBottom="35dp"
+                android:textColorLink="@color/azul_enlaces"
+                android:autoLink="web"
+                android:textIsSelectable="true"/>
+
+            <!-- Resto de referencias... -->
+
+            <TextView
+                android:id="@+id/textoim1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="En cirugía abdominal la TPN de uso único PICO ha demostrado reducir:*"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                android:layout_marginBottom="15dp"
+                android:autoLink="web"
+                android:textIsSelectable="true"/>
+
+            <TextView
+                android:id="@+id/textobeneficios"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="• Incidencia de CSQ incluyendo ISQ\n• Estancia hospitalaria ² ⁴⁻⁶\n• Readmisiones ⁵"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                android:layout_marginStart="16dp"
+                android:autoLink="web"
+                android:textIsSelectable="true"/>
+
+            <ImageView
+                android:id="@+id/recommendationImage2"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_gravity="center"
+                android:contentDescription="Logo de la empresa"
+                android:src="@drawable/image_beneficiostpn"
+                android:scaleType="fitCenter"
+                android:maxHeight="200dp" />
+
+            <ImageView
+                android:id="@+id/leyendaImage2"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="16dp"
+                android:contentDescription="Logo de la empresa"
+                android:src="@drawable/leyendas"
+                android:scaleType="fitCenter"
+                android:maxHeight="50dp" />
+
+
+            <TextView
+                android:id="@+id/refim1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. Gupta R, Darby GC, Imagawa DK. Efficacy of negative pressure wound treatment in preventing surgical site infections after whipple procedures. Am Surg. 2017;83(10):1166–1169."
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                android:layout_marginBottom="15dp"
+                android:textIsSelectable="true"/>
+
+            <TextView
+                android:id="@+id/refim2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2. O'Leary DP, Peirce C, et al. Prophylactic negative pressure dressing use in closed laparotomy wounds following abdominal operations: a randomized, controlled, open-label trial: The P.I.C.O. Trial. Ann Surg. 2017;265:1082–1086."
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                android:layout_marginBottom="15dp"
+                android:textIsSelectable="true"/>
+
+            <TextView
+                android:id="@+id/refim3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4. Obeid N, Sharma E, Dunstan M, et al. Negative pressure therapy for stoma closure sited – a nonrandomised case control study. Int J Colorectal Dis. 2020 Sep 14;[Epub ahead of print]."
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                android:layout_marginBottom="15dp"
+                android:textIsSelectable="true"/>
+
+            <TextView
+                android:id="@+id/refim4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5. Selvaggi F, et al. New advances in NPWT for surgical wounds of patients affected with Crohn’s disease. Surg Technol Int. 2014;24:83–89."
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                android:layout_marginBottom="15dp"
+                android:textIsSelectable="true"/>
+
+            <TextView
+                android:id="@+id/refim5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="7. Bueno-Lledó J, Franco-Bernal A, Garcia-Voz-Mediano MT, Torregrosa-Gallud A, Bonafé S. Prophylactic Single-use Negative Pressure Dressing in Closed Surgical Wounds After Incisional Hernia Repair: A Randomized, Controlled Trial. Annals of Surgery. 2020 Nov 12."
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                android:layout_marginBottom="15dp"
+                android:textIsSelectable="true"/>
+
+
 
         </LinearLayout>
 
