@@ -1,8 +1,10 @@
 package com.us.prevenircsq.faqScreen.ui
 
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
@@ -25,10 +27,13 @@ class FaqActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = ActivityFaqBinding.inflate(layoutInflater)
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(binding.root)
 
         // Cambiar el color de la barra de estado a naranja
         window.statusBarColor = ContextCompat.getColor(this, R.color.color_botones)
+        window.navigationBarColor = ContextCompat.getColor(this, R.color.white)
 
         viewModel = ViewModelProvider(this)[FaqViewModel::class.java]
 

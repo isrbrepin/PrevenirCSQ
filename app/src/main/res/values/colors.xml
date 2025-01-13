@@ -10,5 +10,11 @@
     <color name="color_riesgo_alto">#A42D1E</color>
     <color name="gris_puntos">#A5A5A5</color>
     <color name="azul_enlaces">#0645AD</color>
+    <color name="tabla_riesgo_paciente">#46D9C5</color>
+    <color name="tabla_riesgo_procedimiento">#1B61A8</color>
+    <color name="tabla_riesgo_paciente_checkbox">#3346D9C5</color>
+    <color name="tabla_riesgo_pprocedimiento_checkbox">#331B61A8</color>
+
+
 
 </resources>

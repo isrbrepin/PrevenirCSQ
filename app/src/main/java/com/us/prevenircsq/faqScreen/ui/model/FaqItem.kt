@@ -5,5 +5,6 @@ data class FaqItem(
     val descripcion: String? = null, // Texto opcional
     val imageResource: Int? = null, // Recurso de imagen opcional
     val imageResource2: Int? = null, // Recurso de imagen opcional
+    val videoResource: Int? = null, // Recurso de video opcional
     var expandida: Boolean = false
 )

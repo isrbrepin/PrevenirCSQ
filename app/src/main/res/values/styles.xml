@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <style name="CustomAlertDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/dialog_background</item>
+    </style>
+
     <!---Checkbox-->
     <style name="MyModerateCheckBox" parent="Theme.AppCompat.NoActionBar">
         <item name="colorControlNormal">#FFA726</item>
@@ -16,6 +20,9 @@
 
     <style name="CustomCardViewStyle" parent="Widget.MaterialComponents.CardView">
         <item name="shapeAppearanceOverlay">@style/CustomShapeAppearance</item>
+    </style>
+
+    <style name="AppTheme" parent="Theme.Material3.Light">
     </style>
 
     <style name="CustomShapeAppearance" parent="">

@@ -4,7 +4,7 @@
     <string name="Moderado1">Edad ≥ 70</string>
     <string name="Moderado2">Inmunosupresión*</string>
     <string name="Moderado3">Terapia anticoagulante/antiagregación</string>
-    <string name="Moderado4">Hipoalbuminemia</string>
+    <string name="Moderado4"><![CDATA[Hipoalbuminemia (<3 mg/dl)]]></string>
     <string name="Moderado5">Fumador activo</string>
     <string name="Moderado6">ASA grado 3 y 4</string>
     <string name="Alto1"><![CDATA[Diabetes mellitus mal controlada (HbA1c > 7)]]></string>

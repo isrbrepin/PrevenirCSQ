@@ -71,6 +71,14 @@
             android:scaleType="centerInside"
             android:contentDescription="Imagen de respuesta" />
 
+        <VideoView
+            android:id="@+id/videoFaq"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:visibility="gone"
+            android:layout_gravity="center"
+            android:layout_marginBottom="16dp"/>
+
 
 
     </LinearLayout>

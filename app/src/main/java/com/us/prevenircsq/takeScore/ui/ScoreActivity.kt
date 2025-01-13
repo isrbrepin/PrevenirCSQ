@@ -1,9 +1,19 @@
 package com.us.prevenircsq.takeScore.ui
 
+import android.app.Dialog
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.os.Bundle
+import android.view.Gravity
+import android.view.View
+import android.view.WindowManager
+import android.widget.Button
 import android.widget.CheckBox
+import android.widget.ImageButton
+import android.widget.ImageView
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
@@ -20,15 +30,17 @@ class ScoreActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_score)
+
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         // Usar ViewBinding para inflar el layout
         binding = ActivityScoreBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         // Cambiar el color de la barra de estado a naranja
         window.statusBarColor = ContextCompat.getColor(this, R.color.color_botones)
-        window.navigationBarColor = ContextCompat.getColor(this, R.color.color_botones)
+        window.navigationBarColor = ContextCompat.getColor(this, R.color.white)
 
         viewModel = ViewModelProvider(this)[ScoreViewModel::class.java]
 
@@ -84,9 +96,38 @@ class ScoreActivity : AppCompatActivity() {
             val recommendation = viewModel.getRecommendation()
             Intent(this, RecommendationActivity::class.java).apply {
                 putExtra("recommendation", recommendation)
+                flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
                 startActivity(this)
+                finish()
             }
         }
+
+        val linkModerate7 = binding.linkModerate7
+
+        linkModerate7.setOnClickListener {
+            val dialogView = layoutInflater.inflate(R.layout.dialog_tabla_nnis, null)
+            val builder = AlertDialog.Builder(this, R.style.CustomAlertDialog)
+            builder.setView(dialogView)
+
+            val dialog = builder.create()
+
+            val layoutParams = WindowManager.LayoutParams().apply {
+                copyFrom(dialog.window?.attributes)
+                gravity = Gravity.CENTER // Cambiar a la posición que desees
+            }
+            dialog.window?.attributes = layoutParams
+
+            val dismissButton: ImageButton = dialogView.findViewById(R.id.closeDialogButton)
+
+            dismissButton.setOnClickListener {
+                // Cierra el AlertDialog
+                dialog.dismiss()
+            }
+
+            dialog.show()
+        }
+
+
     }
 
     private fun setupCheckBoxListeners(checkBoxes: List<CheckBox>, isHighRisk: Boolean) {

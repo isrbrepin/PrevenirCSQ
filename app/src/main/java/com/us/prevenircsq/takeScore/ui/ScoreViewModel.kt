@@ -15,6 +15,9 @@ class ScoreViewModel @Inject constructor() : ViewModel() {
     private var _highRiskCount = MutableLiveData(0)
     val highRiskCount: LiveData<Int> get() = _highRiskCount
 
+    private var _imageResource = MutableLiveData<Int>()
+    val imageResource: LiveData<Int> get() = _imageResource
+
     fun onModerateRiskChanged(isChecked: Boolean) {
         _moderateRiskCount.value = (_moderateRiskCount.value ?: 0) + if (isChecked) 1 else -1
     }
@@ -28,7 +31,7 @@ class ScoreViewModel @Inject constructor() : ViewModel() {
             (_moderateRiskCount.value ?: 0) >= 3 ||
                     (_highRiskCount.value ?: 0) >= 2 ||
                     ((_moderateRiskCount.value ?: 0) >= 2 && (_highRiskCount.value ?: 0) >= 1) ->
-                "TPN de un solo uso durante 7 dias"
+                "TPN DE UN SOLO USO DURANTE 7 DÍAS"
             else -> "RECOMENDACIÓN DE APÓSITO POSTQUIRÚRGICO"
         }
     }

@@ -1,10 +1,12 @@
 package com.us.prevenircsq.sectionsScreen.ui
 
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import com.google.android.material.card.MaterialCardView
@@ -15,7 +17,7 @@ import com.us.prevenircsq.databinding.ActivitySectionsBinding
 import com.us.prevenircsq.faqScreen.ui.FaqActivity
 import com.us.prevenircsq.mecanismoScreen.ui.MecanismoActivity
 import com.us.prevenircsq.takeScore.ui.ScoreActivity
-import com.us.prevenircsq.v2TakeScore.ui.Score2Activity
+import com.us.prevenircsq.v3TakeScore.ui.Score3Activity
 
 
 class SectionsActivity : AppCompatActivity() {
@@ -25,6 +27,8 @@ class SectionsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sections)
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         // Cambiar el color de la barra de estado a naranja
         window.statusBarColor = ContextCompat.getColor(this, R.color.color_botones)
@@ -60,9 +64,16 @@ class SectionsActivity : AppCompatActivity() {
         //}
 
         // Configura el evento de clic del botón
-        binding.btnAlgoritmo2.setOnClickListener {
+        /*binding.btnAlgoritmo2.setOnClickListener {
             // Crear una intención para lanzar la SecondActivity
             val intent = Intent(this, Score2Activity::class.java)
+            startActivity(intent)
+        }*/
+
+        // Configura el evento de clic del botón
+        binding.btnAlgoritmo2.setOnClickListener {
+            // Crear una intención para lanzar la SecondActivity
+            val intent = Intent(this, ScoreActivity::class.java)
             startActivity(intent)
         }
 

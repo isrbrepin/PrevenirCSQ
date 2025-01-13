@@ -1,7 +1,9 @@
 package com.us.prevenircsq.bibliografiaScreen.ui
 
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import com.us.prevenircsq.R
@@ -14,6 +16,8 @@ class BibliografiaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bibliografia)
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         // Usar ViewBinding para inflar el layout
         binding = ActivityBibliografiaBinding.inflate(layoutInflater)
@@ -21,6 +25,7 @@ class BibliografiaActivity : AppCompatActivity() {
 
         // Cambiar el color de la barra de estado a naranja
         window.statusBarColor = ContextCompat.getColor(this, R.color.color_botones)
+        window.navigationBarColor = ContextCompat.getColor(this, R.color.white)
 
         // Configurar la Toolbar
         val toolbar: Toolbar = findViewById(R.id.toolbar)

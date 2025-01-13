@@ -1,0 +1,52 @@
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="380dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/rounded_background"
+    android:padding="16dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <!-- Tabla -->
+
+        <!-- Botón para cerrar -->
+        <ImageButton
+            android:id="@+id/closeDialogButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="top|end"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="2dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/cruz_pequena"
+            android:contentDescription="Cerrar dialogo"
+            app:tint="@android:color/darker_gray" />
+
+        <ImageView
+            android:id="@+id/imageDialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:maxHeight="1300dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/image_tabla_nnis"
+            android:contentDescription="Tabla NNIS" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="&quot;Estas cifras se basan en dos artículos mostrados en el apartado de la bibliografía. No recogen todos los procedimientos que se realizan en cirugía general. En estos casos, anotar el tiempo quirúrgico del procedimiento que más se parezca a estas referencias&quot;." />
+
+
+    </LinearLayout>
+
+</FrameLayout>
+

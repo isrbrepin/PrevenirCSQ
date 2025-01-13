@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.VideoView
 import androidx.core.animation.addListener
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
@@ -49,6 +50,7 @@ class PreguntaAdapter(
         private val descripcionImageView: ImageView = view.findViewById(R.id.descripcionImageView)
         private val descripcionImageView2: ImageView = view.findViewById(R.id.descripcionImageView2)
         private val expandArrow: ImageView = view.findViewById(R.id.expandArrow)
+        private val videoFaq: VideoView = view.findViewById(R.id.videoFaq)
 
         fun bind(pregunta: FaqItem) {
             tituloTextView.text = pregunta.titulo
@@ -72,6 +74,20 @@ class PreguntaAdapter(
                 descripcionTextView.text = pregunta.descripcion
                 descripcionTextView.visibility = if (pregunta.expandida) View.VISIBLE else View.GONE
                 descripcionImageView2.visibility = View.GONE
+            }
+
+            // Configuración del video
+            if (pregunta.videoResource != null) {
+                videoFaq.visibility = if (pregunta.expandida) View.VISIBLE else View.GONE
+                if (pregunta.expandida) {
+                    val videoUri = "android.resource://${itemView.context.packageName}/${pregunta.videoResource}"
+                    videoFaq.setVideoPath(videoUri)
+                    videoFaq.setOnPreparedListener { it.start() } // Comienza el video automáticamente
+                } else {
+                    videoFaq.stopPlayback()
+                }
+            } else {
+                videoFaq.visibility = View.GONE
             }
 
             // Mostrar/ocultar la descripción sincronizando con la rotación
