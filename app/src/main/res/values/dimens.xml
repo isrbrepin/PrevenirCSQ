@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="image_margin_top">20dp</dimen>
+    <dimen name="logo_width_left">100dp</dimen>
+    <dimen name="logo_height_left">40dp</dimen>
+    <dimen name="logo_width_center">67dp</dimen>
+    <dimen name="logo_height_center">100dp</dimen>
+    <dimen name="logo_width_right">100dp</dimen>
+    <dimen name="logo_height_right">65dp</dimen>
 </resources>

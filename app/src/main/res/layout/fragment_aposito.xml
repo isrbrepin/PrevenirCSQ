@@ -1,0 +1,32 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/logoLeft"
+        android:layout_width="180dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/logo_germ" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text='\"Se recomienda la utilización de la terapia de presión negativa incisional en las intervenciones quirúrgicas abiertas con cierre de herida primario con el propósito de reducir la proporción de infección del sitio quirúrgico considerando el balance coste-efectividad\"'
+        android:textSize="18sp"
+        android:textStyle="italic"
+        android:padding="10dp"
+        android:gravity="center" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text='\"Nivel de evidencia: alto. Grado de recomendación: Condicional a favor de la intervención\"'
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:padding="10dp"
+        android:gravity="center" />
+</LinearLayout>

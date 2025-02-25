@@ -1,0 +1,79 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/tipoPacienteTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PACIENTE DE RIESGO ALTO"
+        android:textSize="20sp"
+        android:textColor="#C20000"
+        android:visibility="gone"
+        android:textStyle="bold"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/recommendationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="28sp"
+        android:padding="16dp"
+        android:textStyle="bold"
+        android:gravity="center" />
+
+    <ImageView
+        android:id="@+id/recommendationImage"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginBottom="16dp"
+        android:visibility="gone"
+        android:contentDescription="Imagen de recomendación"
+        android:src="@drawable/image_tpn" />
+
+    <LinearLayout
+        android:id="@+id/recommendationImageAposito"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="250dp"
+            android:layout_marginBottom="16dp"
+            android:layout_gravity="center"
+            android:padding="16dp"
+            android:src="@drawable/image_aposito" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="250dp"
+            android:layout_marginBottom="16dp"
+            android:layout_gravity="center"
+            android:padding="16dp"
+            android:src="@drawable/image_aposito2" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/recommendationImage2"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="Beneficio TPN"
+        android:src="@drawable/image_beneficiostpn"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/bibliografiaLink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ver Bibliografía que respalda el resultado"
+        android:textColor="@color/azul_enlaces"
+        android:textStyle="bold"
+        android:visibility="gone"
+        android:gravity="center" />
+</LinearLayout>

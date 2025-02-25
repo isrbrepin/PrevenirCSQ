@@ -32,4 +32,6 @@
     <string name="descripcion_text"><![CDATA[
         Nuestra APP, creada en colaboración con Smith+Nephew, está diseñada para ayudar a cirujanos a identificar <b>pacientes de alto riesgo</b> en cirugía abdominal y colorrectal, facilitando la aplicación de <b>terapia de presión negativa</b> de un solo uso cuando sea adecuado. Basada en la evidencia clínica, esta herramienta optimiza la <b>prevención de complicaciones</b> en el sitio quirúrgico, mejorando la recuperación y <b>reduciendo costes</b> para el sistema sanitario.
         ]]></string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

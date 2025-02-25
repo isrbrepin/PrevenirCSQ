@@ -1,24 +1,23 @@
 package com.us.prevenircsq.recommendationScreen.ui
 
-import android.content.Intent
 import android.content.pm.ActivityInfo
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
+import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 import com.us.prevenircsq.R
-import com.us.prevenircsq.bibliografiaScreen.ui.BibliografiaActivity
-import com.us.prevenircsq.sectionsScreen.ui.SectionsActivity
 
 class RecommendationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recommendation)
+
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
@@ -43,33 +42,51 @@ class RecommendationActivity : AppCompatActivity() {
             onBackPressedDispatcher.onBackPressed() // Navegar a la pantalla anterior
         }
 
-        val recommendationText: TextView = findViewById(R.id.recommendationTextView)
-        val recommendation = intent.getStringExtra("recommendation")
+        val viewPager: ViewPager2 = findViewById(R.id.viewPager)
+        val recommendation = intent.getStringExtra("recommendation") ?: ""
         val imageResource = intent.getIntExtra("imageResource", R.drawable.image_tpn)
 
-        recommendationText.text = recommendation ?: "No es necesario introducir TPN incisional profiláctica"
-
-        val recommendationImage: ImageView = findViewById(R.id.recommendationImage)
-        recommendationImage.setImageResource(imageResource)
-
-        val recomendationImage2: ImageView = findViewById(R.id.recommendationImage2)
-        val bibliografiaLink: TextView = findViewById(R.id.bibliografiaLink)
-        val tipoPacienteTextView: TextView = findViewById(R.id.tipoPacienteTextView)
-        val recomendationImageAposito: LinearLayout = findViewById(R.id.recommendationImageAposito)
-
-        // Mostrar enlace y cambiar imagen si la recomendación es "TPN DE UN SOLO USO DURANTE 7 DÍAS"
-        if (recommendation == "TPN DE UN SOLO USO DURANTE 7 DÍAS") {
-            bibliografiaLink.visibility = View.VISIBLE
-            recomendationImage2.visibility = View.VISIBLE // Mostrar enlace
-            recommendationImage.visibility = View.VISIBLE
-            tipoPacienteTextView.visibility = View.VISIBLE
-
-            // Navegar a BibliografiaActivity al hacer clic en el enlace
-            bibliografiaLink.setOnClickListener {
-                startActivity(Intent(this, BibliografiaActivity::class.java))
-            }
+        val fragments = if (recommendation == "TPN DE UN SOLO USO DURANTE 7 DÍAS") {
+            listOf(
+                TpnFragment.newInstance(recommendation, imageResource),
+                ApositoFragment()
+            )
         } else {
-            recomendationImageAposito.visibility = View.VISIBLE
+            listOf(TpnFragment.newInstance(recommendation, imageResource))
+        }
+
+        val adapter = RecommendationPagerAdapter(this, fragments)
+        viewPager.adapter = adapter
+
+        viewPager.post {
+            setDots(0, fragments.size)
+        }
+
+
+        viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                setDots(position, fragments.size)
+            }
+        })
+
+
+
+    }
+
+    private fun setDots(currentPage: Int, totalPages: Int) {
+        val dotContainer: LinearLayout = findViewById(R.id.dotContainer)
+        dotContainer.removeAllViews() // Elimina los puntos existentes
+
+        for (i in 0 until totalPages) {
+            val dot = View(this).apply {
+                layoutParams = LinearLayout.LayoutParams(20, 20).apply {
+                    marginStart = 8
+                    marginEnd = 8
+                }
+                setBackgroundResource(if (i == currentPage) R.drawable.tab_selected else R.drawable.tab_unselected)
+            }
+            dotContainer.addView(dot)
         }
     }
 }
