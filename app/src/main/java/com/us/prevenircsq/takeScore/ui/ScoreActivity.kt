@@ -49,7 +49,7 @@ class ScoreActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         // Establecer el título de la toolbar
-        supportActionBar?.title = "Algoritmo / Score"
+        supportActionBar?.title = getString(R.string.algoritmo_score)
 
         val upArrow = resources.getDrawable(R.drawable.baseline_arrow_back_24, null)
         upArrow.setTint(ContextCompat.getColor(this, R.color.white))  // Cambia el color de la flecha a blanco

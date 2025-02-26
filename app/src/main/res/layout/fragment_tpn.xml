@@ -8,7 +8,7 @@
         android:id="@+id/tipoPacienteTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="PACIENTE DE RIESGO ALTO"
+        android:text="@string/paciente_de_riesgo_alto"
         android:textSize="20sp"
         android:textColor="#C20000"
         android:visibility="gone"
@@ -30,7 +30,7 @@
         android:layout_height="180dp"
         android:layout_marginBottom="16dp"
         android:visibility="gone"
-        android:contentDescription="Imagen de recomendación"
+        android:contentDescription="@string/imagen_de_recomendaci_n"
         android:src="@drawable/image_tpn" />
 
     <LinearLayout
@@ -71,7 +71,7 @@
         android:id="@+id/bibliografiaLink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ver Bibliografía que respalda el resultado"
+        android:text="@string/ver_bibliograf_a_que_respalda_el_resultado"
         android:textColor="@color/azul_enlaces"
         android:textStyle="bold"
         android:visibility="gone"

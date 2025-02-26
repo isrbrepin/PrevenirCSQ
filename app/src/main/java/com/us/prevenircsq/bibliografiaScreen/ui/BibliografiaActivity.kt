@@ -33,7 +33,7 @@ class BibliografiaActivity : AppCompatActivity() {
 
 
         // Establecer el título de la toolbar
-        supportActionBar?.title = "Estudios / Bibliografía"
+        supportActionBar?.title = getString(R.string.estudios_bibliografia)
 
         val upArrow = resources.getDrawable(R.drawable.baseline_arrow_back_24, null)
         upArrow.setTint(ContextCompat.getColor(this, R.color.white))  // Cambia el color de la flecha a blanco

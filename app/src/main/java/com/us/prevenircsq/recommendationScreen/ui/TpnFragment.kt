@@ -33,7 +33,7 @@ class TpnFragment : Fragment() {
         recommendationText.text = recommendation
         recommendationImage.setImageResource(imageResource)
 
-        if (recommendation == "TPN DE UN SOLO USO DURANTE 7 DÍAS") {
+        if (recommendation == getString(R.string.tpn_de_un_solo_uso_durante_7_dias)) {
             bibliografiaLink.visibility = View.VISIBLE
             recommendationImage.visibility = View.VISIBLE
             recommendationImage2.visibility = View.VISIBLE

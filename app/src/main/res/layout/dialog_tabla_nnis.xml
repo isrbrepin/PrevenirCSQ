@@ -43,7 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:text="&quot;Estas cifras se basan en dos artículos mostrados en el apartado de la bibliografía. No recogen todos los procedimientos que se realizan en cirugía general. En estos casos, anotar el tiempo quirúrgico del procedimiento que más se parezca a estas referencias&quot;." />
+            android:text="@string/evidencia_nnis_text" />
 
 
     </LinearLayout>

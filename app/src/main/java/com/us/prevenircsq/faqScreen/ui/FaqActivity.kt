@@ -54,7 +54,7 @@ class FaqActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         // Establecer el título de la toolbar
-        supportActionBar?.title = "Preguntas frecuentes"
+        supportActionBar?.title = getString(R.string.preguntas_frecuentes_title)
 
         // Establecer el ícono personalizado de la flecha
         val upArrow = resources.getDrawable(R.drawable.baseline_arrow_back_24, null)

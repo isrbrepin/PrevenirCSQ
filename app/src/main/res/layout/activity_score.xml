@@ -335,7 +335,7 @@
                 android:textSize="16sp"
                 android:textColor="@color/white"
                 android:layout_gravity="center"
-                android:text="Obtener resultado"
+                android:text="@string/obtener_resultado"
                 app:strokeColor="@color/gris"
                 app:strokeWidth="1dp"/>
 

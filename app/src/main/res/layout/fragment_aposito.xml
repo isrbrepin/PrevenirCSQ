@@ -15,7 +15,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text='\"Se recomienda la utilización de la terapia de presión negativa incisional en las intervenciones quirúrgicas abiertas con cierre de herida primario con el propósito de reducir la proporción de infección del sitio quirúrgico considerando el balance coste-efectividad\"'
+        android:text='@string/se_recomienda_la_utilizacion_germ'
         android:textSize="18sp"
         android:textStyle="italic"
         android:padding="10dp"
@@ -24,7 +24,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text='\"Nivel de evidencia: alto. Grado de recomendación: Condicional a favor de la intervención\"'
+        android:text='@string/nivel_de_evidencia_germ'
         android:textSize="18sp"
         android:textStyle="bold"
         android:padding="10dp"

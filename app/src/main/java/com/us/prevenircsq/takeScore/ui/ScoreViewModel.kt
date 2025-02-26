@@ -1,13 +1,19 @@
 package com.us.prevenircsq.takeScore.ui
 
+import android.app.Application
 import androidx.lifecycle.LiveData
+import android.content.Context
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.us.prevenircsq.R
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class ScoreViewModel @Inject constructor() : ViewModel() {
+class ScoreViewModel @Inject constructor(application: Application) : AndroidViewModel(application) {
+
+    private val context: Context = application.applicationContext
 
     private var _moderateRiskCount = MutableLiveData(0)
     val moderateRiskCount: LiveData<Int> get() = _moderateRiskCount
@@ -31,8 +37,8 @@ class ScoreViewModel @Inject constructor() : ViewModel() {
             (_moderateRiskCount.value ?: 0) >= 3 ||
                     (_highRiskCount.value ?: 0) >= 2 ||
                     ((_moderateRiskCount.value ?: 0) >= 2 && (_highRiskCount.value ?: 0) >= 1) ->
-                "TPN DE UN SOLO USO DURANTE 7 DÍAS"
-            else -> "RECOMENDACIÓN DE APÓSITO POSTQUIRÚRGICO"
+                context.getString(R.string.tpn_de_un_solo_uso_durante_7_dias)
+            else -> context.getString(R.string.recomendacion_de_aposito)
         }
     }
 }

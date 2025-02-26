@@ -30,7 +30,7 @@ class RecommendationActivity : AppCompatActivity() {
         window.navigationBarColor = ContextCompat.getColor(this, R.color.white)
 
         // Establecer el título de la toolbar
-        supportActionBar?.title = "Recomendación"
+        supportActionBar?.title = getString(R.string.recomendacion)
 
         val upArrow = resources.getDrawable(R.drawable.baseline_arrow_back_24, null)
         upArrow.setTint(ContextCompat.getColor(this, R.color.white))  // Cambia el color de la flecha a blanco
@@ -46,7 +46,7 @@ class RecommendationActivity : AppCompatActivity() {
         val recommendation = intent.getStringExtra("recommendation") ?: ""
         val imageResource = intent.getIntExtra("imageResource", R.drawable.image_tpn)
 
-        val fragments = if (recommendation == "TPN DE UN SOLO USO DURANTE 7 DÍAS") {
+        val fragments = if (recommendation == getString(R.string.tpn_de_un_solo_uso_durante_7_dias)) {
             listOf(
                 TpnFragment.newInstance(recommendation, imageResource),
                 ApositoFragment()
