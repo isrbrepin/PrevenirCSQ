@@ -31,11 +31,11 @@
     <string name="logo_smith_nephew">logo_smith_nephew</string>
     <string name="ref11"><![CDATA[11. Bueno-Lledó J, Rubio-Pérez I, Moreno-Gijón M, Olona-Casas C, Barbosa E, Molina JM, et al. Prophylactic use of incisional negative pressure wound therapy for the prevention of surgical site occurrences in general surgery: Consensus document. Surgery [Internet]. 2022 Dec 31 [cited 2023 Jan 16]; Available from: https://www.sciencedirect.com/science/article/abs/pii/S0039606022010121?CMX_ID=&SIS_ID=&dgcid=STMJ_AUTH_SERV_PUBLISHED&utm_acid=80272470&utm_campaign=STMJ_AUTH_SERV_PUBLISHED&utm_in=DM329951&utm_medium=email&utm_source=AC_]]></string>
     <string name="descripcion_text"><![CDATA[
-        A nossa APP, criada em colaboração com a Smith+Nephew, foi desenvolvida para ajudar os cirurgiões a identificar <b>pacientes de alto risco</b> o em cirurgia abdominal e colorretal, facilitando a aplicação da <b>terapia de pressão negativa</b> negativa quando apropriado. Baseada em evidência clínica, esta ferramenta otimiza a <b>prevenção de complicações</b> no local cirúrgico, melhorando a recuperação e <b>reduzindo custos</b> para o sistema de saúde.
+        A nossa APP, criada em colaboração com a Smith+Nephew, foi desenvolvida para ajudar os cirurgiões a identificar <b>pacientes de alto risco</b> o em cirurgia abdominal e colorretal, facilitando a aplicação da <b>terapia de pressão negativa</b> incisonal fechada, de uso único, quando apropriado. Baseada em evidência clínica, esta ferramenta otimiza a <b>prevenção de complicações</b> no local cirúrgico, melhorando a recuperação e <b>reduzindo custos</b> para o sistema de saúde.
         ]]></string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="bienvenido_a">Bem-vindo a</string>
+    <string name="bienvenido_a">Bem-vindo à</string>
     <string name="titulo_intro">Prevenção de Complicações do Local Cirúrgico</string>
     <string name="comenzar">COMEÇAR</string>
     <string name="algoritmo_score">Algoritmo / Score</string>
@@ -54,15 +54,15 @@
     <string name="se_recomienda_la_utilizacion_germ">\"Recomenda-se a utilização da terapia de pressão negativa incisional em intervenções cirúrgicas abertas com encerramento primário da ferida, a fim de reduzir a proporção de infeção do sítio cirúrgico, considerando o equilíbrio custo-efetividade\"</string>
     <string name="nivel_de_evidencia_germ">\"Nível de evidência: alto. Grau de recomendação: Condicional a favor da intervenção\"</string>
     <string name="en_cirugia_abdominal_biblio">Na cirurgia abdominal, a TPN de uso único PICO demonstrou reduzir:*</string>
-    <string name="incidencia_de_csq_biblio">• Incidência de CSQ, incluindo ISQ\n• Tempo de internação ² ⁴⁻⁶\n• Readmissões ⁵</string>
+    <string name="incidencia_de_csq_biblio">• Incidência de OLC, incluindo ILC\n• Tempo de internamento ² ⁴⁻⁶\n• Readmissões ⁵</string>
     <string name="preguntas_frecuentes_title">Perguntas Frequentes</string>
     <string name="que_significa_cada_indicador_del_dispositivo">O que significa cada indicador do dispositivo?</string>
     <string name="ques_la_reparaci_n_abdominal_compleja_sac">O que é a reparação abdominal complexa (SAC)?</string>
     <string name="reconstrcci_pared_abd">Reconstrução da parede abdominal com técnicas complexas, especialmente a separação anterior ou posterior de componentes. Essas técnicas podem estar associadas a tempos cirúrgicos prolongados e dissecção ampla.</string>
-    <string name="que_proc_llevan">Quais procedimentos estão associados à dissecção subcutânea ampla?</string>
+    <string name="que_proc_llevan">Que procedimentos estão associados à dissecção subcutânea ampla?</string>
     <string name="principalmente_paniculectom_as_y_abdominoplastias">Principalmente paniculectomias e abdominoplastias.</string>
-    <string name="puedo_ponerlo_en_una_herida">Posso utilizá-lo em uma ferida de amputação abominoperineal?</string>
-    <string name="respuesta_puedo_ponerlo">Sim, embora não haja evidência na literatura, pode ser uma alternativa. No entanto, frequentemente é difícil fixar o sistema e requer a habilidade da equipe cirúrgica.</string>
+    <string name="puedo_ponerlo_en_una_herida">Posso utilizá-lo numa ferida de amputação abominoperineal?</string>
+    <string name="respuesta_puedo_ponerlo">Sim, embora não haja evidência na literatura, pode ser uma alternativa. No entanto, frequentemente é difícil fixar o sistema e requer a habilidade da equipa cirúrgica.</string>
     <string name="c_mo_colocamos_el_ap_sito_pico">Como aplicamos o penso PICO?</string>
     <string name="mecanismo_de_acci_n_title">Mecanismo de Ação</string>
     <string name="evidencia_nnis_text">\"Estes números baseiam-se em dois artigos apresentados na secção de bibliografia. Não incluem todos os procedimentos realizados em cirurgia geral. Nestes casos, deve-se registar o tempo cirúrgico do procedimento que mais se assemelhe a estas referências\".</string>
