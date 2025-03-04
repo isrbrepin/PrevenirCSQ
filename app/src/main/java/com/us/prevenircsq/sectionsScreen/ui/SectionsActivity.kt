@@ -2,7 +2,10 @@ package com.us.prevenircsq.sectionsScreen.ui
 
 import android.content.Intent
 import android.content.pm.ActivityInfo
+import android.content.res.Configuration
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +13,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import com.google.android.material.card.MaterialCardView
+import com.us.prevenircsq.BaseActivity
 import com.us.prevenircsq.R
 import com.us.prevenircsq.bibliografiaScreen.ui.BibliografiaActivity
 import com.us.prevenircsq.databinding.ActivityScoreBinding
@@ -18,9 +22,10 @@ import com.us.prevenircsq.faqScreen.ui.FaqActivity
 import com.us.prevenircsq.mecanismoScreen.ui.MecanismoActivity
 import com.us.prevenircsq.takeScore.ui.ScoreActivity
 import com.us.prevenircsq.v3TakeScore.ui.Score3Activity
+import java.util.Locale
 
 
-class SectionsActivity : AppCompatActivity() {
+class SectionsActivity : BaseActivity() {
 
     private lateinit var binding: ActivitySectionsBinding
 
@@ -98,4 +103,24 @@ class SectionsActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_language_selection, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.lang_es -> {
+                setLocale("es")
+                true
+            }
+            R.id.lang_pt -> {
+                setLocale("pt")
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+
 }

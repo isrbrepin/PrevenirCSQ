@@ -13,6 +13,9 @@
         android:theme="@style/Theme.PrevenirCSQ"
         tools:targetApi="31">
         <activity
+            android:name=".languageSelection.LanguageSelectionActivity"
+            android:exported="false" />
+        <activity
             android:name=".v3TakeScore.ui.Score3Activity"
             android:exported="false" />
         <activity
@@ -36,7 +39,7 @@
         <activity
             android:name=".takeScore.ui.ScoreActivity"
             android:exported="false"
-            android:launchMode="singleTask"/>
+            android:launchMode="singleTask" />
         <activity
             android:name=".HeaderActivity"
             android:exported="false" />
@@ -46,8 +49,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:launchMode="singleInstance"
-            >
+            android:launchMode="singleInstance">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
