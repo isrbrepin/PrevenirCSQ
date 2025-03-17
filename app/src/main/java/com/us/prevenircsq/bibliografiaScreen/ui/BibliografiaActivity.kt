@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
+import com.us.prevenircsq.BaseActivity
 import com.us.prevenircsq.R
 import com.us.prevenircsq.databinding.ActivityBibliografiaBinding
 

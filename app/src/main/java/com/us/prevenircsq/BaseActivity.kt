@@ -1,5 +1,6 @@
 package com.us.prevenircsq
 
+import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.content.res.Configuration
@@ -9,37 +10,33 @@ import java.util.Locale
 
 open class BaseActivity : AppCompatActivity() {
 
+    override fun attachBaseContext(newBase: Context) {
+        val newContext = updateBaseContextLocale(newBase)
+        super.attachBaseContext(newContext)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
-        loadLanguage() // Cargar el idioma guardado antes de inflar la UI
         super.onCreate(savedInstanceState)
     }
 
-    private fun loadLanguage() {
-        val prefs: SharedPreferences = getSharedPreferences("Settings", MODE_PRIVATE)
-        val language = prefs.getString("Language", "es") // Idioma predeterminado español
-        val locale = Locale(language!!)
+    private fun updateBaseContextLocale(context: Context): Context {
+        val prefs: SharedPreferences = context.getSharedPreferences("Settings", Context.MODE_PRIVATE)
+        val language = prefs.getString("App_Lang", "es") ?: "es"
+
+        val locale = Locale(language)
         Locale.setDefault(locale)
 
         val config = Configuration()
         config.setLocale(locale)
-        baseContext.resources.updateConfiguration(config, baseContext.resources.displayMetrics)
+
+        return context.createConfigurationContext(config)
     }
 
     protected open fun setLocale(languageCode: String) {
-        val locale = Locale(languageCode)
-        Locale.setDefault(locale)
-
-        val config = Configuration()
-        config.setLocale(locale)
-        baseContext.resources.updateConfiguration(config, baseContext.resources.displayMetrics)
-
-        // Guardar el idioma en SharedPreferences
         val prefs = getSharedPreferences("Settings", MODE_PRIVATE)
-        val editor = prefs.edit()
-        editor.putString("Language", languageCode)
-        editor.apply()
+        prefs.edit().putString("App_Lang", languageCode).apply()
 
-        // Reiniciar la aplicación completamente
+        // Reiniciar la app
         restartApp()
     }
 
@@ -47,6 +44,6 @@ open class BaseActivity : AppCompatActivity() {
         val intent = packageManager.getLaunchIntentForPackage(packageName)
         intent?.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
         startActivity(intent)
-        finishAffinity() // Cierra todas las actividades
+        finishAffinity()
     }
 }

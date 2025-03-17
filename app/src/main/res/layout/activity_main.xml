@@ -10,7 +10,7 @@
     <ImageView
         android:layout_width="350dp"
         android:layout_height="120dp"
-        android:src="@drawable/image_carga"
+        android:src="@drawable/image_carga2"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -1,25 +1,21 @@
 package com.us.prevenircsq.takeScore.ui
 
-import android.app.Dialog
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.view.Gravity
-import android.view.View
 import android.view.WindowManager
-import android.widget.Button
 import android.widget.CheckBox
 import android.widget.ImageButton
-import android.widget.ImageView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
+import com.us.prevenircsq.BaseActivity
 import com.us.prevenircsq.R
-import com.us.prevenircsq.recommendationScreen.ui.RecommendationActivity
 import com.us.prevenircsq.databinding.ActivityScoreBinding
+import com.us.prevenircsq.recommendationScreen.ui.RecommendationActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -31,34 +27,27 @@ class ScoreActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
-        // Usar ViewBinding para inflar el layout
         binding = ActivityScoreBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
-        // Cambiar el color de la barra de estado a naranja
         window.statusBarColor = ContextCompat.getColor(this, R.color.color_botones)
         window.navigationBarColor = ContextCompat.getColor(this, R.color.white)
 
         viewModel = ViewModelProvider(this)[ScoreViewModel::class.java]
 
         // Configurar la Toolbar
-        val toolbar: Toolbar = binding.toolbar
-        setSupportActionBar(toolbar)
-
-        // Establecer el título de la toolbar
+        setSupportActionBar(binding.toolbar)
         supportActionBar?.title = getString(R.string.algoritmo_score)
-
-        val upArrow = resources.getDrawable(R.drawable.baseline_arrow_back_24, null)
-        upArrow.setTint(ContextCompat.getColor(this, R.color.white))  // Cambia el color de la flecha a blanco
-        supportActionBar?.setHomeAsUpIndicator(upArrow)
+        supportActionBar?.setHomeAsUpIndicator(ContextCompat.getDrawable(this, R.drawable.baseline_arrow_back_24)?.apply {
+            setTint(ContextCompat.getColor(this@ScoreActivity, R.color.white))
+        })
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        // Acciones al presionar el botón
-        toolbar.setNavigationOnClickListener {
-            onBackPressedDispatcher.onBackPressed() // Navegar a la pantalla anterior
+        binding.toolbar.setNavigationOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
         }
 
         val checkBoxesModerate = listOf(
@@ -88,46 +77,36 @@ class ScoreActivity : AppCompatActivity() {
             binding.checkBoxHigh10
         )
 
-        // Asignar listeners a los checkboxes
         setupCheckBoxListeners(checkBoxesModerate, false)
         setupCheckBoxListeners(checkBoxesHigh, true)
 
         binding.btnComprobar.setOnClickListener {
-            val recommendation = viewModel.getRecommendation()
+            val recommendationKey = viewModel.recommendationKey.value ?: "recomendacion_de_aposito"
+            val recommendationText = getString(resources.getIdentifier(recommendationKey, "string", packageName))
+
             Intent(this, RecommendationActivity::class.java).apply {
-                putExtra("recommendation", recommendation)
+                putExtra("recommendation", recommendationText)
                 flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
                 startActivity(this)
                 finish()
             }
         }
 
-        val linkModerate7 = binding.linkModerate7
-
-        linkModerate7.setOnClickListener {
+        binding.linkModerate7.setOnClickListener {
             val dialogView = layoutInflater.inflate(R.layout.dialog_tabla_nnis, null)
             val builder = AlertDialog.Builder(this, R.style.CustomAlertDialog)
             builder.setView(dialogView)
 
             val dialog = builder.create()
-
-            val layoutParams = WindowManager.LayoutParams().apply {
-                copyFrom(dialog.window?.attributes)
-                gravity = Gravity.CENTER // Cambiar a la posición que desees
+            dialog.window?.attributes = WindowManager.LayoutParams().apply {
+                gravity = Gravity.CENTER
             }
-            dialog.window?.attributes = layoutParams
 
             val dismissButton: ImageButton = dialogView.findViewById(R.id.closeDialogButton)
-
-            dismissButton.setOnClickListener {
-                // Cierra el AlertDialog
-                dialog.dismiss()
-            }
+            dismissButton.setOnClickListener { dialog.dismiss() }
 
             dialog.show()
         }
-
-
     }
 
     private fun setupCheckBoxListeners(checkBoxes: List<CheckBox>, isHighRisk: Boolean) {

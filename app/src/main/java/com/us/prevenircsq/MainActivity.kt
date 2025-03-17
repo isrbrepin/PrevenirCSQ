@@ -20,7 +20,13 @@ class MainActivity : AppCompatActivity() {
     private val splashScreenDuration: Long = 3000
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+        // Aplicar el idioma antes de la creación de la actividad
+        val prefs = getSharedPreferences("Settings", Context.MODE_PRIVATE)
+        val language = prefs.getString("App_Lang", "es") // Español por defecto
+        applyLocale(language)
+
+        super.onCreate(savedInstanceState) // Ahora sí creamos la actividad
+
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
@@ -29,30 +35,23 @@ class MainActivity : AppCompatActivity() {
         window.statusBarColor = ContextCompat.getColor(this, R.color.color_botones)
         window.navigationBarColor = ContextCompat.getColor(this, R.color.color_botones)
 
-        val prefs = getSharedPreferences("Settings", Context.MODE_PRIVATE)
-        val language = prefs.getString("App_Lang", null)
-
-        if (language == null) {
-            // Si no hay idioma guardado, ir a la pantalla de selección de idioma
-            Handler(Looper.getMainLooper()).postDelayed({
-                startActivity(Intent(this, LanguageSelectionActivity::class.java))
-                finish()
-            }, splashScreenDuration)
-        } else {
-            // Aplicar el idioma guardado y seguir a la pantalla de introducción
-            applyLocale(language)
-            Handler(Looper.getMainLooper()).postDelayed({
-                startActivity(Intent(this, IntroductionActivity::class.java))
-                finish()
-            }, splashScreenDuration)
-        }
+        Handler(Looper.getMainLooper()).postDelayed({
+            val nextActivity = if (prefs.getString("App_Lang", "").isNullOrEmpty()) {
+                LanguageSelectionActivity::class.java
+            } else {
+                IntroductionActivity::class.java
+            }
+            startActivity(Intent(this, nextActivity))
+            finish()
+        }, splashScreenDuration)
     }
 
-    private fun applyLocale(languageCode: String) {
+    private fun applyLocale(languageCode: String?) {
+        if (languageCode == null) return
         val locale = Locale(languageCode)
         Locale.setDefault(locale)
         val config = Configuration()
         config.setLocale(locale)
-        resources.updateConfiguration(config, resources.displayMetrics)
+        baseContext.resources.updateConfiguration(config, baseContext.resources.displayMetrics)
     }
 }

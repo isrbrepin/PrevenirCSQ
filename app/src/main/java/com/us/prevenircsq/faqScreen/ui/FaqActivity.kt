@@ -11,9 +11,11 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.us.prevenircsq.BaseActivity
 import com.us.prevenircsq.R
 import com.us.prevenircsq.databinding.ActivityBibliografiaBinding
 import com.us.prevenircsq.databinding.ActivityFaqBinding
+import com.us.prevenircsq.faqScreen.ui.model.FaqItem
 import com.us.prevenircsq.takeScore.ui.ScoreViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -46,7 +48,17 @@ class FaqActivity : AppCompatActivity() {
 
         // Observar los cambios en las preguntas
         viewModel.preguntas.observe(this) { preguntas ->
-            adapter.updateData(preguntas)
+            val preguntasTraducidas = preguntas.map { faqItem ->
+                FaqItem(
+                    titulo = getString(resources.getIdentifier(faqItem.titulo, "string", packageName)),
+                    descripcion = faqItem.descripcion?.let { getString(resources.getIdentifier(it, "string", packageName)) },
+                    imageResource = faqItem.imageResource,
+                    imageResource2 = faqItem.imageResource2,
+                    videoResource = faqItem.videoResource,
+                    expandida = faqItem.expandida
+                )
+            }
+            adapter.updateData(preguntasTraducidas)
         }
 
         // Configurar la Toolbar

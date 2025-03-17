@@ -9,34 +9,25 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.us.prevenircsq.BaseActivity
 import com.us.prevenircsq.R
 import com.us.prevenircsq.sectionsScreen.ui.SectionsActivity
-import com.us.prevenircsq.takeScore.ui.ScoreActivity
-import dagger.hilt.android.AndroidEntryPoint
+import androidx.core.os.LocaleListCompat
 
-@AndroidEntryPoint
-class IntroductionActivity : BaseActivity() {
+class IntroductionActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_introduction)
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
-        // Configurar la Toolbar
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
-
-        // Eliminar el título por defecto de la aplicación
         supportActionBar?.setDisplayShowTitleEnabled(false)
-
         window.navigationBarColor = ContextCompat.getColor(this, R.color.white)
 
         val descriptionText: TextView = findViewById(R.id.descriptionText)
@@ -46,16 +37,12 @@ class IntroductionActivity : BaseActivity() {
             Html.fromHtml(getString(R.string.descripcion_text))
         }
 
-
         val btnComenzar: Button = findViewById(R.id.botonComenzar)
-        // Configura el evento de clic del botón
         btnComenzar.setOnClickListener {
-            // Crear una intención para lanzar la SecondActivity
-            val intent = Intent(this@IntroductionActivity, SectionsActivity::class.java)
+            val intent = Intent(this, SectionsActivity::class.java)
             startActivity(intent)
         }
-
-        }
+    }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_language_selection_orange, menu)
@@ -75,4 +62,12 @@ class IntroductionActivity : BaseActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
+
+    private fun setLocale(languageCode: String) {
+        val appLocale = LocaleListCompat.forLanguageTags(languageCode)
+        AppCompatDelegate.setApplicationLocales(appLocale)
+
+        // Reiniciar para aplicar cambios
+        recreate()
     }
+}

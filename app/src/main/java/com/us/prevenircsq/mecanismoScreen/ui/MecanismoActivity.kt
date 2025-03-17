@@ -9,6 +9,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.us.prevenircsq.BaseActivity
 import com.us.prevenircsq.R
 import com.us.prevenircsq.databinding.ActivityBibliografiaBinding
 import com.us.prevenircsq.databinding.ActivityMecanismoBinding

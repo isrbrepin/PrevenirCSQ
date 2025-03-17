@@ -2,30 +2,22 @@ package com.us.prevenircsq.sectionsScreen.ui
 
 import android.content.Intent
 import android.content.pm.ActivityInfo
-import android.content.res.Configuration
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Button
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
-import com.google.android.material.card.MaterialCardView
-import com.us.prevenircsq.BaseActivity
+import androidx.core.os.LocaleListCompat
 import com.us.prevenircsq.R
 import com.us.prevenircsq.bibliografiaScreen.ui.BibliografiaActivity
-import com.us.prevenircsq.databinding.ActivityScoreBinding
 import com.us.prevenircsq.databinding.ActivitySectionsBinding
 import com.us.prevenircsq.faqScreen.ui.FaqActivity
 import com.us.prevenircsq.mecanismoScreen.ui.MecanismoActivity
 import com.us.prevenircsq.takeScore.ui.ScoreActivity
-import com.us.prevenircsq.v3TakeScore.ui.Score3Activity
-import java.util.Locale
 
-
-class SectionsActivity : BaseActivity() {
+class SectionsActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySectionsBinding
 
@@ -63,7 +55,7 @@ class SectionsActivity : BaseActivity() {
 
         // Configura el evento de clic del botón
         //binding.btnAlgoritmo.setOnClickListener {
-            // Crear una intención para lanzar la SecondActivity
+        // Crear una intención para lanzar la SecondActivity
         //    val intent = Intent(this, ScoreActivity::class.java)
         //    startActivity(intent)
         //}
@@ -103,6 +95,7 @@ class SectionsActivity : BaseActivity() {
             startActivity(intent)
         }
     }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_language_selection, menu)
         return true
@@ -122,5 +115,9 @@ class SectionsActivity : BaseActivity() {
         }
     }
 
-
+    private fun setLocale(languageCode: String) {
+        val appLocale = LocaleListCompat.forLanguageTags(languageCode)
+        AppCompatDelegate.setApplicationLocales(appLocale)
+        recreate() // Refrescar la actividad con el nuevo idioma
+    }
 }
