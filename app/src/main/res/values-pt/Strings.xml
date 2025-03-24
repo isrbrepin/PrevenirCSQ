@@ -66,5 +66,7 @@
     <string name="c_mo_colocamos_el_ap_sito_pico">Como aplicamos o penso PICO?</string>
     <string name="mecanismo_de_acci_n_title">Mecanismo de Ação</string>
     <string name="evidencia_nnis_text">\"Estes números baseiam-se em dois artigos apresentados na secção de bibliografia. Não incluem todos os procedimentos realizados em cirurgia geral. Nestes casos, deve-se registar o tempo cirúrgico do procedimento que mais se assemelhe a estas referências\".</string>
+    <string name="selecciona_tu_idioma">Selecione o seu idioma</string>
+    <string name="cambiando_idioma">Mudando idioma</string>
 
 </resources>

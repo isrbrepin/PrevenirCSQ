@@ -49,6 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
+            android:layout_marginTop="-24dp"
             android:visibility="gone"
             android:text="Descripción del contenido de la pregunta..."
             android:textSize="14sp"
@@ -59,9 +60,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
+            android:layout_marginTop="-16dp"
             android:visibility="gone"
             android:scaleType="centerInside"
             android:contentDescription="Imagen de respuesta" />
+
         <ImageView
             android:id="@+id/descripcionImageView2"
             android:layout_width="match_parent"
@@ -75,11 +78,34 @@
             android:id="@+id/videoFaq"
             android:layout_width="match_parent"
             android:layout_height="200dp"
+            android:layout_marginTop="-27dp"
             android:visibility="gone"
             android:layout_gravity="center"
             android:layout_marginBottom="16dp"/>
 
+        <androidx.media3.ui.PlayerView
+            android:id="@+id/playerView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="-27dp"
+            android:visibility="gone"
+            android:layout_gravity="center"
+            android:layout_marginBottom="16dp"
+            android:keepScreenOn="true"
+            app:use_controller="true"
+            app:show_buffering="when_playing"
+            app:resize_mode="fill"/>
 
+        <Button
+            android:id="@+id/btnFullScreen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/blue"
+            android:visibility="gone"
+            android:text="Ver video en pantalla completa"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="8dp"/>
 
     </LinearLayout>
 

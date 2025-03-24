@@ -65,4 +65,6 @@
     <string name="c_mo_colocamos_el_ap_sito_pico">¿Cómo colocamos el apósito PICO?</string>
     <string name="mecanismo_de_acci_n_title">Mecanismo de Acción</string>
     <string name="evidencia_nnis_text">\"Estas cifras se basan en dos artículos mostrados en el apartado de la bibliografía. No recogen todos los procedimientos que se realizan en cirugía general. En estos casos, anotar el tiempo quirúrgico del procedimiento que más se parezca a estas referencias\".</string>
+    <string name="selecciona_tu_idioma">Selecciona tu idioma</string>
+    <string name="cambiando_idioma">Cambiando idioma</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.us.prevenircsq.languageSelection
 
+import android.content.Context
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.os.Bundle
@@ -28,7 +29,11 @@ class LanguageSelectionActivity : AppCompatActivity() {
         val appLocale = LocaleListCompat.forLanguageTags(languageCode)
         AppCompatDelegate.setApplicationLocales(appLocale)
 
-        // Reiniciar para aplicar cambios
+        // Guardar el idioma seleccionado en SharedPreferences
+        val prefs = getSharedPreferences("Settings", Context.MODE_PRIVATE)
+        prefs.edit().putString("App_Lang", languageCode).apply()
+
+        // Ir a la pantalla de introducción y eliminar LanguageSelection del historial
         val intent = Intent(this, IntroductionActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)

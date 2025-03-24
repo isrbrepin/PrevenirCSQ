@@ -1,10 +1,16 @@
 package com.us.prevenircsq.introductionScreen.ui
 
+import android.app.AlertDialog
+import android.app.Dialog
+import android.app.ProgressDialog
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.text.Html
+import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
@@ -18,6 +24,8 @@ import com.us.prevenircsq.sectionsScreen.ui.SectionsActivity
 import androidx.core.os.LocaleListCompat
 
 class IntroductionActivity : AppCompatActivity() {
+
+    private var loadingDialog: Dialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,20 +60,44 @@ class IntroductionActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.lang_es -> {
-                setLocale("es")
+                showLoadingAndChangeLanguage("es")
                 true
             }
             R.id.lang_pt -> {
-                setLocale("pt")
+                showLoadingAndChangeLanguage("pt")
                 true
             }
             else -> super.onOptionsItemSelected(item)
         }
     }
 
+    private fun showLoadingAndChangeLanguage(languageCode: String) {
+        showLoadingDialog()
+
+        // Simular carga antes de aplicar el cambio de idioma
+        Handler(Looper.getMainLooper()).postDelayed({
+            setLocale(languageCode)
+        }, 1000) // 500ms para una transición más fluida
+    }
+
+    private fun showLoadingDialog() {
+        val builder = AlertDialog.Builder(this)
+        val inflater = LayoutInflater.from(this)
+        val view = inflater.inflate(R.layout.dialog_loading, null)
+
+        builder.setView(view)
+        builder.setCancelable(false) // No permitir que el usuario lo cierre manualmente
+
+        loadingDialog = builder.create()
+        loadingDialog?.show()
+    }
+
     private fun setLocale(languageCode: String) {
         val appLocale = LocaleListCompat.forLanguageTags(languageCode)
         AppCompatDelegate.setApplicationLocales(appLocale)
+
+        // Cerrar el diálogo antes de recrear la actividad
+        loadingDialog?.dismiss()
 
         // Reiniciar para aplicar cambios
         recreate()
