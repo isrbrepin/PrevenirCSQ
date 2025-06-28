@@ -2,7 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id("kotlin-kapt")
-    id("dagger.hilt.android.plugin")
+    id("dagger.hilt.android.plugin") // Asegúrate que la versión coincide con la del proyecto
 }
 
 android {
@@ -13,8 +13,8 @@ android {
         applicationId "com.us.prevenircsq"
         minSdk 21
         targetSdk 34
-        versionCode 12
-        versionName "2.0"
+        versionCode 14 // Puedes considerar incrementar esto
+        versionName "2.1" // Y esto también
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -36,24 +36,34 @@ android {
     buildFeatures{
         viewBinding = true
     }
-
 }
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.8.0'
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.5.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'androidx.activity:activity:1.8.0'
+    // Core y UI de AndroidX
+    implementation 'androidx.core:core-ktx:1.13.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1' // Ya estaba en una versión reciente y estable
+    implementation 'com.google.android.material:material:1.12.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4' // Estable y sin cambios mayores recientes
+    implementation 'androidx.activity:activity-ktx:1.9.0' // Se recomienda usar la versión -ktx para helpers de Kotlin
+
+    // Media3 (ExoPlayer) - La nueva forma recomendada por Google
+    // Se han unificado las dependencias de exoplayer bajo media3
     implementation "androidx.media3:media3-exoplayer:1.3.1"
-    implementation 'com.google.android.exoplayer:exoplayer:2.19.1'
     implementation "androidx.media3:media3-ui:1.3.1"
+    // La dependencia 'com.google.android.exoplayer:exoplayer' está obsoleta y se incluye en media3.
+    // Se ha eliminado para evitar duplicados y conflictos.
+
+    // Testing
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-    implementation("com.google.dagger:hilt-android:2.46")
-    kapt("com.google.dagger:hilt-android-compiler:2.46")
-    implementation("com.github.chrisbanes:PhotoView:2.3.0")
+
+    // Hilt para Inyección de Dependencias
+    implementation("com.google.dagger:hilt-android:2.51.1")
+    kapt("com.google.dagger:hilt-android-compiler:2.51.1")
+
+    // Visor de Fotos
+    implementation("com.github.chrisbanes:PhotoView:2.3.0") // Sigue siendo la última versión estable
 
 }

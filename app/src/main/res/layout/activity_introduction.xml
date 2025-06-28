@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="8dp">
 
             <TextView
                 android:id="@+id/welcomeText"
@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/bienvenido_a"
                 android:textColor="#000000"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/appTitle"
@@ -54,7 +54,7 @@
                 android:gravity="center_horizontal"
                 android:text="@string/titulo_intro"
                 android:textColor="#000000"
-                android:textSize="30sp"
+                android:textSize="22sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -109,7 +109,8 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:orientation="horizontal"
-                    android:layout_marginTop="16dp">
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="12dp">
                     <ImageView
                         android:id="@+id/logoBottom"
                         android:layout_width="140dp"
