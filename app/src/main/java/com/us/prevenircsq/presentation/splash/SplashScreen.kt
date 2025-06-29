@@ -3,9 +3,11 @@
 package com.us.prevenircsq.presentation.splash
 
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
@@ -26,11 +28,14 @@ class SplashActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         // Simplemente inflamos nuestro layout, como en la versión original.
         setContentView(R.layout.activity_main)
 
         // Seguimos observando al ViewModel para saber a dónde ir.
         observeNavigation()
+
+        enableEdgeToEdge()
     }
 
     private fun observeNavigation() {

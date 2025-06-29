@@ -5,6 +5,7 @@ import com.us.prevenircsq.domain.repository.SettingsRepository
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 import javax.inject.Singleton
+import androidx.core.content.edit
 
 // Esta clase sabe CÓMO obtener los datos (con SharedPreferences).
 @Singleton
@@ -16,5 +17,9 @@ class SettingsRepositoryImpl @Inject constructor(
 
     override fun getLanguage(): String? {
         return prefs.getString("App_Lang", null)
+    }
+
+    override fun saveLanguage(languageCode: String) {
+        prefs.edit { putString("App_Lang", languageCode) }
     }
 }
