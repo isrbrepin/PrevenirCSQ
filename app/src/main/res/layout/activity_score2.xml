@@ -7,7 +7,7 @@
     android:background="@drawable/background_score"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".bibliografiaScreen.ui.BibliografiaActivity">
+    tools:context=".presentation.bibliografia.BibliografiaActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"

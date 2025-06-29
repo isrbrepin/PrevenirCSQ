@@ -1,20 +1,20 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-    id("kotlin-kapt")
-    id("dagger.hilt.android.plugin") // Asegúrate que la versión coincide con la del proyecto
+    id 'com.google.devtools.ksp'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
     namespace 'com.us.prevenircsq'
-    compileSdk 34
+    compileSdk 35
 
     defaultConfig {
         applicationId "com.us.prevenircsq"
         minSdk 21
-        targetSdk 34
-        versionCode 14 // Puedes considerar incrementar esto
-        versionName "2.1" // Y esto también
+        targetSdk 35
+        versionCode 15
+        versionName "2.2"
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -39,31 +39,34 @@ android {
 }
 
 dependencies {
-
-    // Core y UI de AndroidX
+    // Core y UI (versiones actualizadas a junio de 2025)
     implementation 'androidx.core:core-ktx:1.13.1'
-    implementation 'androidx.appcompat:appcompat:1.6.1' // Ya estaba en una versión reciente y estable
+    implementation 'androidx.appcompat:appcompat:1.7.0'
     implementation 'com.google.android.material:material:1.12.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4' // Estable y sin cambios mayores recientes
-    implementation 'androidx.activity:activity-ktx:1.9.0' // Se recomienda usar la versión -ktx para helpers de Kotlin
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4' // Sigue siendo la última
+    implementation 'androidx.activity:activity-ktx:1.9.0'
 
-    // Media3 (ExoPlayer) - La nueva forma recomendada por Google
-    // Se han unificado las dependencias de exoplayer bajo media3
+    // DEPENDENCIAS PARA MVVM (Lifecycle)
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.1" // Para los ViewModels
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.8.1"  // Para LiveData
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.8.1"    // Para coroutine scopes (lifecycleScope)
+
+    // Media3 (ExoPlayer) - Perfecto, sin cambios.
     implementation "androidx.media3:media3-exoplayer:1.3.1"
     implementation "androidx.media3:media3-ui:1.3.1"
-    // La dependencia 'com.google.android.exoplayer:exoplayer' está obsoleta y se incluye en media3.
-    // Se ha eliminado para evitar duplicados y conflictos.
+
+    // Hilt para Inyección de Dependencias (usando ksp)
+    implementation("com.google.dagger:hilt-android:2.51.1")
+    ksp("com.google.dagger:hilt-android-compiler:2.51.1") // 4. Usamos ksp en lugar de kapt
+
+    // Visor de Fotos
+    implementation("com.github.chrisbanes:PhotoView:2.3.0")
 
     // Testing
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
-    // Hilt para Inyección de Dependencias
-    implementation("com.google.dagger:hilt-android:2.51.1")
-    kapt("com.google.dagger:hilt-android-compiler:2.51.1")
-
-    // Visor de Fotos
-    implementation("com.github.chrisbanes:PhotoView:2.3.0") // Sigue siendo la última versión estable
-
+    // Splash
+    implementation 'androidx.core:core-splashscreen:1.0.1'
 }

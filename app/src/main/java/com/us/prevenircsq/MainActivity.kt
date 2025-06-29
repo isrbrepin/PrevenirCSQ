@@ -11,8 +11,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import androidx.core.os.LocaleListCompat
-import com.us.prevenircsq.introductionScreen.ui.IntroductionActivity
-import com.us.prevenircsq.languageSelection.LanguageSelectionActivity
+import com.us.prevenircsq.presentation.introduccion.IntroductionActivity
+import com.us.prevenircsq.presentation.languageSelection.LanguageSelectionActivity
 
 class MainActivity : AppCompatActivity() {
 

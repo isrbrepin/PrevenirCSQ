@@ -14,51 +14,42 @@
         android:theme="@style/Theme.PrevenirCSQ"
         tools:targetApi="31">
         <activity
-            android:name=".faqScreen.ui.VideoActivity"
+            android:name=".presentation.faq.VideoActivity"
             android:exported="false" />
         <activity
-            android:name=".languageSelection.LanguageSelectionActivity"
+            android:name=".presentation.languageSelection.LanguageSelectionActivity"
             android:exported="false" />
         <activity
-            android:name=".v3TakeScore.ui.Score3Activity"
+            android:name=".presentation.mecanismo.MecanismoActivity"
             android:exported="false" />
         <activity
-            android:name=".mecanismoScreen.ui.MecanismoActivity"
+            android:name=".presentation.faq.FaqActivity"
             android:exported="false" />
         <activity
-            android:name=".v2TakeScore.ui.Score2Activity"
+            android:name=".presentation.bibliografia.BibliografiaActivity"
             android:exported="false" />
         <activity
-            android:name=".faqScreen.ui.FaqActivity"
+            android:name=".presentation.sections.SectionsActivity"
             android:exported="false" />
         <activity
-            android:name=".bibliografiaScreen.ui.BibliografiaActivity"
+            android:name=".presentation.introduccion.IntroductionActivity"
             android:exported="false" />
         <activity
-            android:name=".sectionsScreen.ui.SectionsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".introductionScreen.ui.IntroductionActivity"
-            android:exported="false" />
-        <activity
-            android:name=".takeScore.ui.ScoreActivity"
+            android:name=".presentation.score.ScoreActivity"
             android:exported="false"
             android:launchMode="singleTask" />
         <activity
             android:name=".HeaderActivity"
             android:exported="false" />
         <activity
-            android:name=".recommendationScreen.ui.RecommendationActivity"
+            android:name=".presentation.recommendation.RecommendationActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
-            android:exported="true"
-            android:launchMode="singleInstance">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:name=".presentation.splash.SplashActivity" android:exported="true"
+            android:theme="@style/Theme.App.Starting"     tools:ignore="LockedOrientationActivity"> <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
         </activity>
     </application>
 
