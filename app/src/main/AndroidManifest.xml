@@ -45,8 +45,10 @@
             android:name=".presentation.recommendation.RecommendationActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.splash.SplashActivity" android:exported="true"
-            android:theme="@style/Theme.App.Starting"     tools:ignore="LockedOrientationActivity"> <intent-filter>
+            android:name=".presentation.splash.SplashActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.PrevenirCSQ"  tools:ignore="LockedOrientationActivity"> <intent-filter>
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
