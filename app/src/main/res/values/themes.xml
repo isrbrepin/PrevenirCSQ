@@ -6,6 +6,7 @@
     </style>
 
     <style name="Theme.PrevenirCSQ" parent="Base.Theme.PrevenirCSQ">
-    <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimary">@color/white</item>
+        <item name="android:navigationBarColor">@color/white</item>
     </style>
 </resources>
