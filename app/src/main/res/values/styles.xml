@@ -18,6 +18,14 @@
 
     </style>
 
+    <style name="Widget.App.CheckBox.Moderate" parent="Widget.Material3.CompoundButton.CheckBox">
+        <item name="colorControlNormal">@color/color_botones</item>
+        <item name="colorSecondary">@color/color_botones</item>
+        <item name="colorControlActivated">@color/color_botones</item> </style>
+
+    <style name="Widget.App.CheckBox.High" parent="Widget.Material3.CompoundButton.CheckBox">
+        <item name="colorSecondary">@color/gris</item> <item name="colorControlActivated">#F44336</item> </style>
+
     <style name="CustomCardViewStyle" parent="Widget.MaterialComponents.CardView">
         <item name="shapeAppearanceOverlay">@style/CustomShapeAppearance</item>
     </style>

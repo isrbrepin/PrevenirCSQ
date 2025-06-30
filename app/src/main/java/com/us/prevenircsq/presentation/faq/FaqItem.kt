@@ -1,4 +1,4 @@
-package com.us.prevenircsq.presentation.faq.model
+package com.us.prevenircsq.presentation.faq
 
 data class FaqItem(
     val titulo: String,

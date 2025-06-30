@@ -7,4 +7,19 @@
         <item name="android:navigationBarColor">@color/white</item>
     </style>
 
+    <style name="CheckBox.Base" parent="Widget.AppCompat.CompoundButton.CheckBox">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:paddingStart">8dp</item>
+    </style>
+
+    <style name="CheckBox.Moderate" parent="CheckBox.Base">
+        <item name="buttonTint">@drawable/checkbox_tint_moderate</item>
+    </style>
+
+    <style name="CheckBox.High" parent="CheckBox.Base">
+        <item name="buttonTint">@drawable/checkbox_tint_high</item>
+    </style>
 </resources>

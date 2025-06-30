@@ -6,14 +6,5 @@
         android:icon="@drawable/globo_white"
         android:title="Idioma"
         android:orderInCategory="100"
-        app:showAsAction="always">
-        <menu>
-            <item
-                android:id="@+id/lang_es"
-                android:title="Español"/>
-            <item
-                android:id="@+id/lang_pt"
-                android:title="Português"/>
-        </menu>
-    </item>
+        app:showAsAction="always" />
 </menu>

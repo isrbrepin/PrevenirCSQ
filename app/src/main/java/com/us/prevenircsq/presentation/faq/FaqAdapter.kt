@@ -13,7 +13,6 @@ import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.ui.PlayerView
 import androidx.recyclerview.widget.RecyclerView
 import com.us.prevenircsq.R
-import com.us.prevenircsq.presentation.faq.model.FaqItem
 
 class PreguntaAdapter(
     private var preguntas: List<FaqItem>,

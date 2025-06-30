@@ -10,7 +10,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.us.prevenircsq.R
 import com.us.prevenircsq.databinding.ActivityFaqBinding
-import com.us.prevenircsq.presentation.faq.model.FaqItem
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -23,8 +22,7 @@ class FaqActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = ActivityFaqBinding.inflate(layoutInflater)
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         setContentView(binding.root)
 
         // Cambiar el color de la barra de estado a naranja

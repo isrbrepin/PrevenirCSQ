@@ -2,32 +2,40 @@
 
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@drawable/background_simple"
+    tools:context=".presentation.score.ScoreActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/color_botones"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        android:elevation="0dp"
-        app:title="Algoritmo / Score"
-        app:titleTextColor="@color/white" />
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/color_botones"
+            app:titleTextColor="@color/white" />
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <!-- Contenido con Scroll -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="60dp"
-        android:background="@color/white">
+        android:background="@color/white"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <!-- LinearLayout para el contenido -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="16dp">
 
 
             <TextView
@@ -38,7 +46,9 @@
                 android:textSize="22sp"
                 android:textColor="#11111F"
                 android:textStyle="bold"
-                android:layout_margin="16dp"/>
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"/>
 
             <!-- Usa RecyclerView o LinearLayout para listas de elementos -->
 
@@ -49,6 +59,7 @@
                 app:cardElevation="2dp"
                 app:cardCornerRadius="8dp"
                 app:strokeColor="#CECECE"
+                app:cardBackgroundColor="@color/white"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="16dp">
@@ -58,8 +69,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp">
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp">
 
                     <!-- Personaliza tus CheckBoxes aquí -->
 
@@ -67,84 +80,82 @@
                         android:id="@+id/checkBoxModerate1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="8dp"
                         android:textColor="@color/black"
-                        android:theme="@style/MyModerateCheckBox"
+                        android:textSize="16sp"
+                        style="@style/CheckBox.Moderate"
                         android:text="@string/Moderado1" />
 
                     <CheckBox
                         android:id="@+id/checkBoxModerate2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
                         android:textColor="@color/black"
-                        android:theme="@style/MyModerateCheckBox"
+                        android:textSize="16sp"
+                        style="@style/CheckBox.Moderate"
                         android:text="@string/Moderado2" />
 
                     <CheckBox
                         android:id="@+id/checkBoxModerate3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
                         android:textColor="@color/black"
-                        android:theme="@style/MyModerateCheckBox"
+                        android:textSize="16sp"
+                        style="@style/CheckBox.Moderate"
                         android:text="@string/Moderado3" />
 
                     <CheckBox
                         android:id="@+id/checkBoxModerate4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
+                        android:textSize="16sp"
                         android:textColor="@color/black"
-                        android:theme="@style/MyModerateCheckBox"
+                        style="@style/CheckBox.Moderate"
                         android:text="@string/Moderado4" />
 
                     <CheckBox
                         android:id="@+id/checkBoxModerate5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
                         android:textColor="@color/black"
-                        android:theme="@style/MyModerateCheckBox"
+                        android:textSize="16sp"
+                        style="@style/CheckBox.Moderate"
                         android:text="@string/Moderado5" />
 
                     <CheckBox
                         android:id="@+id/checkBoxModerate6"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
                         android:textColor="@color/black"
-                        android:theme="@style/MyModerateCheckBox"
+                        android:textSize="16sp"
+                        style="@style/CheckBox.Moderate"
                         android:text="@string/Moderado6"  />
                     <!-- ... -->
-
 
                     <CheckBox
                         android:id="@+id/checkBoxHigh1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
                         android:textColor="@color/black"
-                        android:theme="@style/MyHighCheckBox"
+                        android:textSize="16sp"
+                        style="@style/CheckBox.High"
                         android:text="@string/Alto1" />
 
                     <CheckBox
                         android:id="@+id/checkBoxHigh2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
                         android:textColor="@color/black"
-                        android:theme="@style/MyHighCheckBox"
+                        android:textSize="16sp"
+                        style="@style/CheckBox.High"
                         android:text="@string/Alto2" />
 
                     <CheckBox
                         android:id="@+id/checkBoxHigh3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
                         android:textColor="@color/black"
-                        android:theme="@style/MyHighCheckBox"
+                        android:textSize="16sp"
+                        style="@style/CheckBox.High"
                         android:text="@string/Alto3" />
 
                 </LinearLayout>
@@ -168,8 +179,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardElevation="2dp"
-                app:strokeColor="#CECECE"
                 app:cardCornerRadius="8dp"
+                app:strokeColor="#CECECE"
+                app:cardBackgroundColor="@color/white"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="16dp">
@@ -179,8 +191,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp">
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp">
 
                     <!-- Personaliza tus CheckBoxes aquí -->
 
@@ -189,7 +203,6 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:layout_marginTop="10dp"
-                        android:layout_marginBottom="8dp"
                         android:gravity="center_vertical">
 
                         <CheckBox
@@ -197,9 +210,10 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:textSize="16sp"
                             android:text="@string/Moderado7"
                             android:textColor="@color/black"
-                            android:theme="@style/MyModerateCheckBox"
+                            style="@style/CheckBox.Moderate"
                             android:ellipsize="none" />
 
                         <TextView
@@ -207,6 +221,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Link"
+                            android:layout_marginBottom="8dp"
                             android:padding="4dp"
                             android:textColor="@color/azul_enlaces"
                             android:layout_marginStart="8dp"
@@ -223,36 +238,36 @@
                         android:id="@+id/checkBoxModerate8"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
                         android:textColor="@color/black"
-                        android:theme="@style/MyModerateCheckBox"
+                        android:textSize="16sp"
+                        style="@style/CheckBox.Moderate"
                         android:text="@string/Moderado8" />
 
                     <CheckBox
                         android:id="@+id/checkBoxModerate9"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
                         android:textColor="@color/black"
-                        android:theme="@style/MyModerateCheckBox"
+                        android:textSize="16sp"
+                        style="@style/CheckBox.Moderate"
                         android:text="@string/Moderado9" />
 
                     <CheckBox
                         android:id="@+id/checkBoxModerate10"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
                         android:textColor="@color/black"
-                        android:theme="@style/MyModerateCheckBox"
+                        android:textSize="16sp"
+                        style="@style/CheckBox.Moderate"
                         android:text="@string/Moderado10" />
 
                     <CheckBox
                         android:id="@+id/checkBoxModerate11"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
                         android:textColor="@color/black"
-                        android:theme="@style/MyModerateCheckBox"
+                        android:textSize="16sp"
+                        style="@style/CheckBox.Moderate"
                         android:text="@string/Moderado11" />
                     <!-- ... -->
 
@@ -260,9 +275,9 @@
                         android:id="@+id/checkBoxHigh4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
                         android:textColor="@color/black"
-                        android:theme="@style/MyHighCheckBox"
+                        android:textSize="16sp"
+                        style="@style/CheckBox.High"
                         android:text="@string/Alto4" />
 
                     <CheckBox
@@ -270,42 +285,42 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
-                        android:layout_marginBottom="8dp"
-                        android:theme="@style/MyHighCheckBox"
+                        android:textSize="16sp"
+                        style="@style/CheckBox.High"
                         android:text="@string/Alto5" />
 
                     <CheckBox
                         android:id="@+id/checkBoxHigh6"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
                         android:textColor="@color/black"
-                        android:theme="@style/MyHighCheckBox"
+                        android:textSize="16sp"
+                        style="@style/CheckBox.High"
                         android:text="@string/Alto6" />
 
                     <CheckBox
                         android:id="@+id/checkBoxHigh7"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
                         android:textColor="@color/black"
-                        android:theme="@style/MyHighCheckBox"
+                        android:textSize="16sp"
+                        style="@style/CheckBox.High"
                         android:text="@string/Alto7" />
                     <CheckBox
                         android:id="@+id/checkBoxHigh8"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
                         android:textColor="@color/black"
-                        android:theme="@style/MyHighCheckBox"
+                        android:textSize="16sp"
+                        style="@style/CheckBox.High"
                         android:text="@string/Alto8" />
                     <CheckBox
                         android:id="@+id/checkBoxHigh9"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
                         android:textColor="@color/black"
-                        android:theme="@style/MyHighCheckBox"
+                        android:textSize="16sp"
+                        style="@style/CheckBox.High"
                         android:text="@string/Alto9" />
 
                     <CheckBox
@@ -313,8 +328,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
+                        android:textSize="16sp"
                         android:textColor="@color/black"
-                        android:theme="@style/MyHighCheckBox"
+                        style="@style/CheckBox.High"
                         android:text="@string/Alto10" />
 
 

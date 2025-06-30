@@ -7,7 +7,6 @@ import android.content.res.Configuration
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.us.prevenircsq.R
-import com.us.prevenircsq.presentation.faq.model.FaqItem
 import dagger.hilt.android.lifecycle.HiltViewModel
 import java.util.Locale
 import javax.inject.Inject

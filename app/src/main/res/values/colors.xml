@@ -16,7 +16,9 @@
     <color name="tabla_riesgo_pprocedimiento_checkbox">#331B61A8</color>
     <color name="blue">#2196F3</color>
     <color name="gray">#BDBDBD</color>
-
+    <color name="riesgo_moderado">#FF9800</color>
+    <color name="riesgo_alto">#F44336</color>
+    <color name="checkbox_unchecked_color">#757575</color>
 
 
 
